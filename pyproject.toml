@@ -7,7 +7,10 @@ authors = [
     { name = "Qamar Raza", email = "raza.qamar@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "duckdb==1.1.3",
+    "httpx==0.28.1",
+]
 
 [project.scripts]
 dbt-sentinel = "dbt_sentinel:main"
