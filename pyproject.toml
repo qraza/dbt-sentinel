@@ -8,12 +8,14 @@ authors = [
 ]
 requires-python = ">=3.12"
 dependencies = [
+    "click==8.1.7",
     "duckdb==1.1.3",
     "httpx==0.28.1",
+    "rich==13.9.4",
 ]
 
 [project.scripts]
-dbt-sentinel = "dbt_sentinel:main"
+sentinel = "dbt_sentinel.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.11.3,<0.12.0"]
@@ -24,3 +26,5 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.0",
 ]
+
+
