@@ -14,9 +14,9 @@ import pytest
 
 from dbt_sentinel.analyze import (
     Analysis,
+    _parse_response,
     analyze,
     build_prompt,
-    _parse_response,
 )
 from dbt_sentinel.context import FailureContext
 from dbt_sentinel.parse import FailingTest
@@ -66,7 +66,7 @@ class _FakeClient:
         self.last_json: dict | None = None
         self.last_headers: dict | None = None
 
-    def post(self, url, headers=None, json=None):  # noqa: A002 - mirror httpx API
+    def post(self, url, headers=None, json=None):
         self.last_headers = headers
         self.last_json = json
         return _FakeResponse(self.reply_text)
