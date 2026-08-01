@@ -1,4 +1,3 @@
-cat > .github/workflows/ci.yml << 'EOF'
 name: CI
 
 on:
@@ -24,4 +23,3 @@ jobs:
 
       - name: Tests
         run: uv run pytest -v
-EOF
