@@ -1,0 +1,62 @@
+PROMPT (naive, no evidence):
+  A dbt test named 'assert_int_trips_enriched_speed_within_bounds' failed with 1826500 failing rows. What is the most likely root cause and how should I fix it? 
+
+ANSWER:
+## Diagnosing the dbt Test Failure
+
+### Understanding the Test
+
+The test name `assert_int_trips_enriched_speed_within_bounds` tells us:
+- It's a **singular test** (custom SQL assertion)
+- It targets the `int_trips_enriched` intermediate model
+- It validates that **speed values fall within expected bounds**
+
+---
+
+## Most Likely Root Causes
+
+### 🔴 #1 — Division by Zero or NULL Producing Infinite/NULL Speed (Most Likely)
+
+```sql
+-- Speed is likely calculated as:
+speed = distance / duration
+
+-- If duration = 0 or NULL → speed = NULL, infinity, or error
+```
+
+With **1.8M failing rows**, this suggests a **systemic data issue**, not edge cases.
+
+---
+
+### Diagnostic Queries
+
+Run these against your intermediate model to pinpoint the cause:
+
+```sql
+-- 1. Check the distribution of failing speeds
+SELECT
+    CASE
+        WHEN speed IS NULL          THEN 'NULL'
+        WHEN speed < 0              THEN 'Negative (<0)'
+        WHEN speed = 0              THEN 'Zero'
+        WHEN speed > 200            THEN 'Unreasonably High (>200 mph)'
+        WHEN duration_seconds = 0   THEN 'Zero Duration'
+        ELSE 'Other'
+    END AS failure_bucket,
+    COUNT(*) AS row_count
+FROM {{ ref('int_trips_enriched') }}
+WHERE speed NOT BETWEEN 0 AND 200  -- adjust bounds to match your test
+GROUP BY 1
+ORDER BY 2 DESC;
+
+-- 2. Check for zero/null durations
+SELECT
+    COUNT(*) FILTER (WHERE duration_seconds = 0)    AS zero_duration,
+    COUNT(*) FILTER (WHERE duration_seconds IS NULL) AS null_duration,
+    COUNT(*) FILTER (WHERE distance_miles < 0)       AS negative_distance,
+    COUNT(*) FILTER (WHERE distance_miles IS NULL)   AS null_distance
+FROM {{ ref('int_trips_enriched') }};
+
+-- 3. Check upstream timestamp issues causing bad duration
+SELECT
+    COUNT(*)

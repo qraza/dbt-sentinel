@@ -18,6 +18,8 @@ from .analyze import analyze
 from .context import connect, gather_context
 from .parse import parse
 from .report import AnalyzedFailure, build_markdown, render_terminal
+from dotenv import load_dotenv
+load_dotenv()
 
 console = Console()
 
