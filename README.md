@@ -9,6 +9,8 @@ explanation and a concrete fix. It flags low-confidence answers instead of bluff
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+![sentinel analyze demo](docs/demo.gif)
+
 ## What this is
 
 A data-quality companion for dbt. When `dbt build` reports a failing test, you normally
