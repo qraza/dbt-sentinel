@@ -12,13 +12,14 @@ from __future__ import annotations
 from pathlib import Path
 
 import click
+from dotenv import load_dotenv
 from rich.console import Console
 
 from .analyze import analyze
 from .context import connect, gather_context
 from .parse import parse
 from .report import AnalyzedFailure, build_markdown, render_terminal
-from dotenv import load_dotenv
+
 load_dotenv()
 
 console = Console()
