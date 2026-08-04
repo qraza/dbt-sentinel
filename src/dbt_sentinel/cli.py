@@ -99,7 +99,7 @@ def analyze_cmd(
 def _default_model() -> str:
     import os
 
-    return os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-5")
+    return os.environ.get("ANTHROPIC_MODEL", "claude-opus-5")
 
 
 # Register under the name "analyze" (the function is analyze_cmd to avoid

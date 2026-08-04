@@ -27,7 +27,7 @@ your tests or mutates data (the warehouse is opened read-only).
 ```bash
 uv sync
 export ANTHROPIC_API_KEY="sk-ant-..."
-export ANTHROPIC_MODEL="claude-sonnet-4-6"
+export ANTHROPIC_MODEL="claude-opus-5"
 
 uv run sentinel analyze \
   --target-dir path/to/dbt/target \
