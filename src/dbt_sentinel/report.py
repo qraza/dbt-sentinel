@@ -63,6 +63,8 @@ def render_terminal(results: list[AnalyzedFailure], console: Console | None = No
             f"[bold]Suggested fix[/]\n{r.analysis.suggested_fix}\n\n"
             f"[bold]Evidence[/]\n{r.analysis.evidence}"
         )
+        if conf.lower() == "low" and r.analysis.raw:
+            body += f"\n\n[bold]Raw model response[/]\n{r.analysis.raw[:2000]}"
         console.print(
             Panel(
                 body,
@@ -103,4 +105,15 @@ def build_markdown(results: list[AnalyzedFailure]) -> str:
             r.analysis.evidence,
             "",
         ]
+        if r.analysis.confidence.lower() == "low" and r.analysis.raw:
+            lines += [
+                "<details><summary>Raw model response</summary>",
+                "",
+                "```",
+                r.analysis.raw[:2000],
+                "```",
+                "",
+                "</details>",
+                "",
+            ]
     return "\n".join(lines)
