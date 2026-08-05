@@ -1,0 +1,94 @@
+name: dbt-sentinel PR demo
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  sentinel-demo:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_MODEL: claude-opus-5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dbt-sentinel
+        run: uv sync
+
+      - name: Scaffold a tiny demo dbt project
+        run: |
+          mkdir -p demo/models demo/tests
+          cat > demo/dbt_project.yml <<'YML'
+          name: sentinel_demo
+          profile: sentinel_demo
+          version: "1.0"
+          config-version: 2
+          model-paths: ["models"]
+          test-paths: ["tests"]
+          YML
+          cat > demo/profiles.yml <<'YML'
+          sentinel_demo:
+            target: dev
+            outputs:
+              dev:
+                type: duckdb
+                path: demo.duckdb
+          YML
+          cat > demo/models/trips_enriched.sql <<'SQL'
+          {{ config(materialized='table') }}
+          with raw as (
+              select * from (values
+                  (0.81, 5),
+                  (1.05, 5),
+                  (18.23, 35),
+                  (2.50, 60)
+              ) as t(trip_distance, trip_duration_minutes)
+          )
+          select
+              trip_distance,
+              trip_duration_minutes,
+              round(600 * trip_distance / nullif(trip_duration_minutes, 0), 2) as avg_speed_mph
+          from raw
+          SQL
+          cat > demo/tests/assert_speed_within_bounds.sql <<'SQL'
+          select * from {{ ref('trips_enriched') }} where avg_speed_mph > 80
+          SQL
+
+      - name: Build demo project (the test fails on purpose)
+        working-directory: demo
+        run: uv run --with dbt-duckdb dbt build --profiles-dir . || true
+
+      - name: Run dbt-sentinel
+        if: env.ANTHROPIC_API_KEY != ''
+        run: |
+          uv run sentinel analyze \
+            --target-dir demo/target \
+            --db demo/demo.duckdb \
+            --markdown sentinel-report.md
+
+      - name: Post analysis as a PR comment
+        if: env.ANTHROPIC_API_KEY != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report = '_No report was produced._';
+            try {
+              report = fs.readFileSync('sentinel-report.md', 'utf8');
+            } catch (e) {}
+            const body = '## dbt-sentinel analysis\n\n' + report;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body,
+            });
