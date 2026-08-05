@@ -162,6 +162,9 @@ def analyze(
         if owns_client:
             client.close()
 
+    import json as _json
+    import sys as _sys
+    print("DEBUG anthropic response:", _json.dumps(body)[:3000], file=_sys.stderr)
     # Anthropic returns {"content": [{"type": "text", "text": "..."}], ...}
     text = "".join(
         block.get("text", "")
