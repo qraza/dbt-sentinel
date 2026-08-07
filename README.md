@@ -94,6 +94,19 @@ The naive answer guesses the wrong cause and hands the work back to you as queri
 The grounded answer runs them, finds the real bug, and proves it against a row. See
 [`docs/example-analysis.md`](docs/example-analysis.md) for the full output.
 
+## Dashboard
+
+A single-page Streamlit view over the recorded history — latest run, per-test failure
+trend, and the stored root cause. It reads dbt-sentinel's own history database, so it
+needs no warehouse connection and no API key.
+
+```bash
+uv sync --group ui
+uv run --group ui streamlit run app/dashboard.py
+```
+
+![dashboard](docs/dashboard.png)
+
 ## Design decisions
 
 **Read artifacts, don't re-run tests.** dbt writes the artifacts on every build; parsing
