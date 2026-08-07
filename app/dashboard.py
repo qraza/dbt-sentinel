@@ -11,10 +11,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import pandas as pd
-import streamlit as st
-
 import duckdb
+import streamlit as st
 
 from dbt_sentinel.store import DEFAULT_HISTORY_PATH
 
