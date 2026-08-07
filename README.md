@@ -26,6 +26,10 @@ root cause, suggested fix, confidence, and the evidence behind it — in the ter
 optionally, markdown for a PR comment. It reads what dbt already produced; it never re-runs
 your tests or mutates data (the warehouse is opened read-only).
 
+It also tracks failures across runs — each one is flagged **new**, **recurring**, or
+**regressed**, and `sentinel history <test-id>` prints a test's full timeline, so you can
+see whether something just broke or has been broken for weeks.
+
 ## Quickstart
 
 ```bash
