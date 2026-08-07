@@ -24,6 +24,7 @@ _CONF_STYLE = {"high": "green", "medium": "yellow", "low": "red"}
 class AnalyzedFailure:
     test: FailingTest
     analysis: Analysis
+    flag: str = ""  # new | recurring | regressed
 
 
 def _conf_style(confidence: str) -> str:
@@ -42,6 +43,7 @@ def render_terminal(results: list[AnalyzedFailure], console: Console | None = No
     table.add_column("Test", overflow="fold")
     table.add_column("Guards", overflow="fold")
     table.add_column("Rows", justify="right")
+    table.add_column("Status")
     table.add_column("Confidence")
     for r in results:
         guards = f"{r.test.relation or r.test.model_name or '?'}"
@@ -52,6 +54,7 @@ def render_terminal(results: list[AnalyzedFailure], console: Console | None = No
             r.test.test_name,
             guards,
             str(r.test.failure_count if r.test.failure_count is not None else "—"),
+            r.flag or "—",
             f"[{_conf_style(conf)}]{conf}[/]",
         )
     console.print(table)

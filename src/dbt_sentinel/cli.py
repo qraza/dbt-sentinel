@@ -15,6 +15,7 @@ import click
 from dotenv import load_dotenv
 from rich.console import Console
 
+from . import store
 from .analyze import analyze
 from .context import connect, gather_context
 from .parse import parse
@@ -89,6 +90,14 @@ def analyze_cmd(
                 raise SystemExit(1) from exc
             results.append(AnalyzedFailure(test=test, analysis=analysis))
 
+    hist = store.connect()
+    prev = store.previous_statuses(hist)
+    for r in results:
+        r.flag = store.classify(
+            r.test.unique_id, prev, store.has_been_seen(hist, r.test.unique_id)
+        )
+    store.record_run(hist, [(r.test, r.analysis) for r in results])
+
     render_terminal(results, console=console)
 
     if markdown:
@@ -109,3 +118,18 @@ main.add_command(analyze_cmd, name="analyze")
 
 if __name__ == "__main__":  # pragma: no cover
     main()
+
+@main.command("history")
+@click.argument("unique_id")
+def history_cmd(unique_id: str) -> None:
+    """Show every recorded outcome for one test."""
+    con = store.connect()
+    entries = store.history(con, unique_id)
+    if not entries:
+        console.print(f"No history recorded for [bold]{unique_id}[/].")
+        return
+    for e in entries:
+        console.print(
+            f"{e.run_at:%Y-%m-%d %H:%M}  {e.status:6}  rows={e.failure_count}  "
+            f"confidence={e.confidence}"
+        )
