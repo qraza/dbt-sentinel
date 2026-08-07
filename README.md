@@ -11,6 +11,10 @@ explanation and a concrete fix. It flags low-confidence answers instead of bluff
 
 ![sentinel analyze demo](docs/demo.gif)
 
+Runs in CI too — on every pull request it posts its grounded diagnosis as a comment:
+
+![PR comment](docs/pr-comment.png)
+
 ## What this is
 
 A data-quality companion for dbt. When `dbt build` reports a failing test, you normally
@@ -104,6 +108,9 @@ say "insufficient evidence" rather than speculate, and confidence is shown, not 
 
 - DuckDB warehouse today; the sampling step is where another warehouse would plug in.
 - One dbt project per run.
+- Models with extended thinking can spend the whole token budget before emitting text,
+  so `max_tokens` is set generously; too low a value yields an unparseable (low-confidence)
+  result rather than an answer.
 - Diagnosis quality depends on the model and on how much signal the sampled rows carry;
   low-signal failures correctly return low confidence.
 
