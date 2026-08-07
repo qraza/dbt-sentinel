@@ -17,9 +17,10 @@ from rich.console import Console
 
 from . import store
 from .analyze import analyze
-from .context import connect, gather_context
+from .context import gather_context
 from .parse import parse
 from .report import AnalyzedFailure, build_markdown, render_terminal
+from .warehouse import open_warehouse
 
 load_dotenv()
 
@@ -41,9 +42,19 @@ def main() -> None:
 )
 @click.option(
     "--db",
-    required=True,
+    required=False,
     type=click.Path(exists=True, dir_okay=False, path_type=Path),
     help="Path to the DuckDB warehouse file to sample offending rows from.",
+)
+@click.option(
+    "--bq-project",
+    default=None,
+    help="BigQuery project to sample from (alternative to --db).",
+)
+@click.option(
+    "--bq-location",
+    default=None,
+    help="BigQuery dataset location, e.g. EU or US.",
 )
 @click.option(
     "--markdown",
@@ -65,7 +76,9 @@ def main() -> None:
 )
 def analyze_cmd(
     target_dir: Path,
-    db: Path,
+    db: Path | None,
+    bq_project: str | None,
+    bq_location: str | None,
     markdown: Path | None,
     sample_limit: int,
     model: str | None,
@@ -78,7 +91,11 @@ def analyze_cmd(
 
     console.print(f"Analyzing [bold]{len(failures)}[/] failing test(s)...\n")
 
-    con = connect(db)
+    try:
+        con = open_warehouse(duckdb_path=db, bq_project=bq_project, bq_location=bq_location)
+    except ValueError as exc:
+        console.print(f"[red]{exc}[/]")
+        raise SystemExit(1) from exc
     results: list[AnalyzedFailure] = []
     with console.status("Gathering context and asking the model..."):
         for test in failures:
@@ -116,8 +133,6 @@ def _default_model() -> str:
 main.add_command(analyze_cmd, name="analyze")
 
 
-if __name__ == "__main__":  # pragma: no cover
-    main()
 
 @main.command("history")
 @click.argument("unique_id")
@@ -133,3 +148,7 @@ def history_cmd(unique_id: str) -> None:
             f"{e.run_at:%Y-%m-%d %H:%M}  {e.status:6}  rows={e.failure_count}  "
             f"confidence={e.confidence}"
         )
+
+
+if __name__ == "__main__":  # pragma: no cover
+    main()
