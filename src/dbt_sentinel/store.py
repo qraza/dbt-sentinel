@@ -126,7 +126,7 @@ def record_run(
                 test.status,
                 test.failure_count,
                 analysis.confidence if analysis else None,
-                (analysis.root_cause[:500] if analysis else None),
+                (analysis.root_cause[:2000] if analysis else None),
             ],
         )
     return run_id

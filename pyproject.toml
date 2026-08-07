@@ -27,5 +27,9 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.0",
 ]
+ui = [
+    "pandas>=3.0.5",
+    "streamlit>=1.61.1",
+]
 
 
