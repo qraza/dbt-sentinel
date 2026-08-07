@@ -14,7 +14,9 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from dbt_sentinel.store import DEFAULT_HISTORY_PATH, connect
+import duckdb
+
+from dbt_sentinel.store import DEFAULT_HISTORY_PATH
 
 st.set_page_config(page_title="dbt-sentinel", layout="wide")
 st.title("dbt-sentinel")
@@ -29,7 +31,7 @@ if not Path(history_path).is_file():
     )
     st.stop()
 
-con = connect(history_path)
+con = duckdb.connect(history_path, read_only=True)
 
 runs = con.execute(
     "select run_id, run_at, project from runs order by run_at desc"
