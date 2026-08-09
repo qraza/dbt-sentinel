@@ -6,14 +6,15 @@ actually failed, and asks an LLM — grounded strictly in that evidence — for 
 explanation and a concrete fix. It flags low-confidence answers instead of bluffing.
 
 [![CI](https://github.com/qraza/dbt-sentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/qraza/dbt-sentinel/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/dbt-sentinel)](https://pypi.org/project/dbt-sentinel/)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/qraza/dbt-sentinel/blob/main/LICENSE)
 
-![sentinel analyze demo](docs/demo.gif)
+![sentinel analyze demo](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/demo.gif)
 
 Runs in CI too — on every pull request it posts its grounded diagnosis as a comment:
 
-![PR comment](docs/pr-comment.png)
+![PR comment](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/pr-comment.png)
 
 ## What this is
 
@@ -92,7 +93,7 @@ with a `600` multiplier instead of `60`):
 
 The naive answer guesses the wrong cause and hands the work back to you as queries to run.
 The grounded answer runs them, finds the real bug, and proves it against a row. See
-[`docs/example-analysis.md`](docs/example-analysis.md) for the full output.
+[`docs/example-analysis.md`](https://github.com/qraza/dbt-sentinel/blob/main/docs/example-analysis.md) for the full output.
 
 ## Warehouses
 
@@ -124,7 +125,7 @@ uv sync --group ui
 uv run --group ui streamlit run app/dashboard.py
 ```
 
-![dashboard](docs/dashboard.png)
+![dashboard](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/dashboard.png)
 
 ## Design decisions
 
