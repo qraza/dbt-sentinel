@@ -33,7 +33,7 @@ def main() -> None:
     """AI-grounded data-quality companion for dbt."""
 
 
-@main.command()
+@main.command("analyze")
 @click.option(
     "--target-dir",
     required=True,
@@ -128,9 +128,6 @@ def _default_model() -> str:
     return os.environ.get("ANTHROPIC_MODEL", "claude-opus-5")
 
 
-# Register under the name "analyze" (the function is analyze_cmd to avoid
-# shadowing the imported analyze()).
-main.add_command(analyze_cmd, name="analyze")
 
 
 

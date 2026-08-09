@@ -1,7 +1,16 @@
 [project]
 name = "dbt-sentinel"
-version = "0.1.0"
-description = "Add your description here"
+version = "0.6.1"
+description = "AI-grounded root-cause analysis for failing dbt tests"
+license = "MIT"
+keywords = ["dbt", "data-quality", "observability", "analytics-engineering", "llm"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Quality Assurance",
+]
 readme = "README.md"
 authors = [
     { name = "Qamar Raza", email = "raza.qamar@gmail.com" }
@@ -14,6 +23,15 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "rich==13.9.4",
 ]
+
+[project.optional-dependencies]
+bq = ["google-cloud-bigquery>=3.43.0"]
+ui = ["streamlit>=1.40"]
+
+[project.urls]
+Homepage = "https://github.com/qraza/dbt-sentinel"
+Repository = "https://github.com/qraza/dbt-sentinel"
+Issues = "https://github.com/qraza/dbt-sentinel/issues"
 
 [project.scripts]
 sentinel = "dbt_sentinel.cli:main"
