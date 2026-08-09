@@ -94,6 +94,25 @@ The naive answer guesses the wrong cause and hands the work back to you as queri
 The grounded answer runs them, finds the real bug, and proves it against a row. See
 [`docs/example-analysis.md`](docs/example-analysis.md) for the full output.
 
+## Warehouses
+
+Sampling runs behind a small adapter interface, so the engine is a flag, not a rewrite.
+DuckDB works out of the box; BigQuery needs the optional extra and Application Default
+Credentials.
+
+```bash
+# DuckDB (default)
+uv run sentinel analyze --target-dir path/to/target --db warehouse.duckdb
+
+# BigQuery
+uv sync --group bq
+gcloud auth application-default login
+uv run sentinel analyze --target-dir path/to/target --bq-project my-project --bq-location EU
+```
+
+BigQuery works against the free sandbox — no billing account required. Credentials are
+never handled by dbt-sentinel itself; the client reads them from ADC.
+
 ## Dashboard
 
 A single-page Streamlit view over the recorded history — latest run, per-test failure
@@ -123,7 +142,7 @@ say "insufficient evidence" rather than speculate, and confidence is shown, not 
 
 ## Limitations
 
-- DuckDB warehouse today; the sampling step is where another warehouse would plug in.
+- DuckDB and BigQuery supported; other engines need a new Warehouse adapter.
 - One dbt project per run.
 - Models with extended thinking can spend the whole token budget before emitting text,
   so `max_tokens` is set generously; too low a value yields an unparseable (low-confidence)
