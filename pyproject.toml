@@ -27,6 +27,7 @@ dependencies = [
 [project.optional-dependencies]
 bq = ["google-cloud-bigquery>=3.43.0"]
 ui = ["streamlit>=1.40"]
+sf = ["snowflake-connector-python>=3.12", "cryptography>=42.0"]
 
 [project.urls]
 Homepage = "https://github.com/qraza/dbt-sentinel"
@@ -51,6 +52,10 @@ dev = [
 evals = [
     "dbt-duckdb>=1.7.5",
     "pyyaml>=6.0.3",
+]
+sf = [
+    "cryptography>=45.0.7",
+    "snowflake-connector-python>=4.3.0",
 ]
 ui = [
     "pandas>=3.0.5",

@@ -48,7 +48,7 @@ def test_open_warehouse_requires_one_backend() -> None:
 
 
 def test_open_warehouse_rejects_both_backends(duck_db) -> None:
-    with pytest.raises(ValueError, match="not both"):
+    with pytest.raises(ValueError, match="not several"):
         open_warehouse(duckdb_path=duck_db, bq_project="some-project")
 
 
@@ -140,3 +140,20 @@ def test_gather_context_reports_engine_errors_gracefully() -> None:
     ctx = gather_context(test, BrokenWarehouse())
     assert ctx.sample_rows == []
     assert "permission denied" in ctx.note
+
+def test_open_warehouse_rejects_snowflake_alongside_duckdb(duck_db) -> None:
+    """Adding an engine must not weaken the one-backend rule."""
+    with pytest.raises(ValueError, match="not several"):
+        open_warehouse(duckdb_path=duck_db, snowflake={"account": "x"})
+
+
+def test_snowflake_needs_a_key_file(tmp_path) -> None:
+    """A missing private key fails clearly rather than at connection time."""
+    from dbt_sentinel.warehouse import SnowflakeWarehouse
+
+    with pytest.raises((FileNotFoundError, RuntimeError)):
+        SnowflakeWarehouse(
+            account="acct",
+            user="me",
+            private_key_path=tmp_path / "absent.p8",
+        )
