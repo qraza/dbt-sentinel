@@ -55,6 +55,7 @@ evals = [
 ]
 sf = [
     "cryptography>=45.0.7",
+    "dbt-snowflake>=1.12.0",
     "snowflake-connector-python>=4.3.0",
 ]
 ui = [

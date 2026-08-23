@@ -152,10 +152,16 @@ class SnowflakeWarehouse:
         )
 
     def query(self, sql: str) -> QueryResult:
+        # cursor.description reports numeric type codes; translate them to names so
+        # the grounding prompt sees "TEXT"/"FIXED" rather than "2"/"0".
+        from snowflake.connector.constants import FIELD_ID_TO_NAME
+
         cur = self._con.cursor()
         try:
             cur.execute(sql)
-            columns = [(d[0], str(d[1])) for d in cur.description]
+            columns = [
+                (d[0], FIELD_ID_TO_NAME.get(d[1], str(d[1]))) for d in cur.description
+            ]
             names = [c[0] for c in columns]
             rows = [dict(zip(names, row)) for row in cur.fetchall()]
             return QueryResult(columns=columns, rows=rows)

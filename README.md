@@ -114,6 +114,32 @@ uv run sentinel analyze --target-dir path/to/target --bq-project my-project --bq
 BigQuery works against the free sandbox — no billing account required. Credentials are
 never handled by dbt-sentinel itself; the client reads them from ADC.
 
+```bash
+# Snowflake
+uv sync --group sf
+```
+
+```python
+open_warehouse(snowflake={
+    "account": "ORG-ACCOUNT", "user": "ME",
+    "private_key_path": "~/.snowflake/rsa_key.p8",
+    "warehouse": "COMPUTE_WH", "database": "DB", "schema": "PUBLIC",
+})
+```
+
+Snowflake uses **key-pair authentication**, not passwords. Snowflake is deprecating
+single-factor password sign-ins through 2026 — human users need MFA and service users
+must use key-pair, OAuth, PAT or WIF — so a password-based adapter would have been
+obsolete on arrival. Key-pair is also the right fit for a non-interactive tool: no human
+present, no password in the environment.
+
+Snowflake support was built and verified end to end against a trial account (see
+[`docs/snowflake-diagnosis.txt`](docs/snowflake-diagnosis.txt)). The adapter is covered by
+mocked tests, but is not currently exercised against a live instance, since the trial has
+a fixed lifetime. Testing against the real engine caught something mocks would not have:
+Snowflake's cursor reports numeric type codes rather than type names, which would have put
+`0` and `2` into the grounding prompt instead of `FIXED` and `TEXT`.
+
 ## Dashboard
 
 A single-page Streamlit view over the recorded history — latest run, per-test failure
