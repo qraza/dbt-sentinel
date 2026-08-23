@@ -1,6 +1,6 @@
 [project]
 name = "dbt-sentinel"
-version = "0.6.2"
+version = "0.7.0"
 description = "AI-grounded root-cause analysis for failing dbt tests"
 license = "MIT"
 keywords = ["dbt", "data-quality", "observability", "analytics-engineering", "llm"]
