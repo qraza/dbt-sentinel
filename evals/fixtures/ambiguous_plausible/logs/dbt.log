@@ -1,0 +1,626 @@
+[0m11:34:36.498720 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d8918d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d95f51c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d884e210>]}
+
+
+============================== 11:34:36.501055 | 4161e65e-24a2-45b1-8799-45af610273cb ==============================
+[0m11:34:36.501055 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:34:36.501409 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible/logs', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'static_parser': 'True', 'write_json': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'fail_fast': 'False', 'introspect': 'True', 'debug': 'False', 'partial_parse': 'True', 'no_print': 'None', 'warn_error': 'None', 'printer_width': '80', 'target_path': 'None', 'quiet': 'False', 'use_colors': 'True'}
+[0m11:34:36.659313 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11cabfb6b0>]}
+[0m11:34:36.714275 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11cabcb140>]}
+[0m11:34:36.714812 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:34:36.719308 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:34:36.719616 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m11:34:36.719881 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11ca9e1c40>]}
+[0m11:34:37.213307 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d845ae10>]}
+[0m11:34:37.218062 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11929d4bf0>]}
+[0m11:34:37.218349 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:34:37.219512 [info ] [MainThread]: 
+[0m11:34:37.220010 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:34:37.220775 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:34:37.227145 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:34:37.227368 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:34:37.227551 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:34:37.239011 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.239896 [debug] [ThreadPool]: On list_eval: Close
+[0m11:34:37.241891 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:34:37.242289 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:34:37.246079 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:37.246301 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:34:37.246473 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:34:37.250840 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.251598 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:37.251841 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:34:37.252242 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.252467 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:37.252675 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:34:37.253062 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.253567 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:34:37.253742 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:37.253894 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:34:37.254230 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.254422 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:34:37.256814 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:34:37.259868 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:34:37.260066 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:34:37.260219 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:34:37.264072 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.264287 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:34:37.264497 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:34:37.279281 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:37.280096 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:34:37.280758 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:34:37.280959 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:34:37.282988 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11929ac260>]}
+[0m11:34:37.283311 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:37.283526 [debug] [MainThread]: On master: BEGIN
+[0m11:34:37.283794 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:34:37.288773 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:37.289004 [debug] [MainThread]: On master: COMMIT
+[0m11:34:37.289210 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:37.289390 [debug] [MainThread]: On master: COMMIT
+[0m11:34:37.289734 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:37.289940 [debug] [MainThread]: On master: Close
+[0m11:34:37.291510 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:34:37.291837 [info ] [MainThread]: 
+[0m11:34:37.293332 [debug] [Thread-1 (]: Began running node model.eval_ambiguous_plausible.orders
+[0m11:34:37.293639 [info ] [Thread-1 (]: 1 of 2 START sql table model main.orders ....................................... [RUN]
+[0m11:34:37.294074 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_ambiguous_plausible.orders'
+[0m11:34:37.294274 [debug] [Thread-1 (]: Began compiling node model.eval_ambiguous_plausible.orders
+[0m11:34:37.297880 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.298662 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (compile): 11:34:37.294395 => 11:34:37.298513
+[0m11:34:37.298876 [debug] [Thread-1 (]: Began executing node model.eval_ambiguous_plausible.orders
+[0m11:34:37.316499 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.317214 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.317435 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: BEGIN
+[0m11:34:37.317623 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:34:37.321663 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.321926 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.322129 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."orders__dbt_tmp"
+  
+    as (
+      
+select * from (values
+    (1, 'GB', 42.00), (2, 'GB', 38.50), (3, 'FR', 51.20),
+    (4, 'FR', 47.90), (5, 'DE', 44.10)
+) as t(order_id, country, order_total)
+    );
+  
+  
+[0m11:34:37.323374 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.326949 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.327195 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+alter table "eval"."main"."orders__dbt_tmp" rename to "orders"
+[0m11:34:37.327704 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.338616 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:34:37.338911 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.339104 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:34:37.343159 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.346239 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:34:37.346479 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+drop table if exists "eval"."main"."orders__dbt_backup" cascade
+[0m11:34:37.346950 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.347898 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (execute): 11:34:37.298997 => 11:34:37.347764
+[0m11:34:37.348121 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: Close
+[0m11:34:37.357787 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4161e65e-24a2-45b1-8799-45af610273cb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11cad03cb0>]}
+[0m11:34:37.358354 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.orders .................................. [[32mOK[0m in 0.06s]
+[0m11:34:37.359097 [debug] [Thread-1 (]: Finished running node model.eval_ambiguous_plausible.orders
+[0m11:34:37.359905 [debug] [Thread-1 (]: Began running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:34:37.360189 [info ] [Thread-1 (]: 2 of 2 START test assert_expected_countries .................................... [RUN]
+[0m11:34:37.360647 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_ambiguous_plausible.orders, now test.eval_ambiguous_plausible.assert_expected_countries)
+[0m11:34:37.360868 [debug] [Thread-1 (]: Began compiling node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:34:37.362445 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:34:37.363123 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (compile): 11:34:37.361013 => 11:34:37.362963
+[0m11:34:37.363360 [debug] [Thread-1 (]: Began executing node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:34:37.372903 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:34:37.373482 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:34:37.373707 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: BEGIN
+[0m11:34:37.373906 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:34:37.378769 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.379031 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:34:37.379364 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_ambiguous_plausible.assert_expected_countries"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      -- Fails because FR/DE are not in the allowed set. The sampled rows themselves look
+-- entirely normal: nothing in them explains WHY the allow-list is wrong, or whether
+-- the data or the test is at fault.
+select * from "eval"."main"."orders" where country not in ('GB')
+      
+    ) dbt_internal_test
+[0m11:34:37.380848 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:37.382268 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (execute): 11:34:37.363495 => 11:34:37.382103
+[0m11:34:37.382503 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: ROLLBACK
+[0m11:34:37.382985 [debug] [Thread-1 (]: Failed to rollback 'test.eval_ambiguous_plausible.assert_expected_countries'
+[0m11:34:37.383191 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: Close
+[0m11:34:37.384600 [error] [Thread-1 (]: 2 of 2 FAIL 3 assert_expected_countries ........................................ [[31mFAIL 3[0m in 0.02s]
+[0m11:34:37.384996 [debug] [Thread-1 (]: Finished running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:34:37.386230 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:37.386483 [debug] [MainThread]: On master: BEGIN
+[0m11:34:37.386659 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:34:37.391450 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:37.391742 [debug] [MainThread]: On master: COMMIT
+[0m11:34:37.391988 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:37.392176 [debug] [MainThread]: On master: COMMIT
+[0m11:34:37.392637 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:37.392849 [debug] [MainThread]: On master: Close
+[0m11:34:37.394209 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:34:37.394417 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:34:37.394569 [debug] [MainThread]: Connection 'test.eval_ambiguous_plausible.assert_expected_countries' was properly closed.
+[0m11:34:37.394760 [info ] [MainThread]: 
+[0m11:34:37.394982 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:34:37.395392 [debug] [MainThread]: Command end result
+[0m11:34:37.399099 [info ] [MainThread]: 
+[0m11:34:37.399452 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:34:37.399773 [info ] [MainThread]: 
+[0m11:34:37.400006 [error] [MainThread]: [31mFailure in test assert_expected_countries (tests/assert_expected_countries.sql)[0m
+[0m11:34:37.400261 [error] [MainThread]:   Got 3 results, configured to fail if != 0
+[0m11:34:37.400468 [info ] [MainThread]: 
+[0m11:34:37.400686 [info ] [MainThread]:   compiled Code at target/compiled/eval_ambiguous_plausible/tests/assert_expected_countries.sql
+[0m11:34:37.400880 [info ] [MainThread]: 
+[0m11:34:37.401078 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:34:37.401448 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d89c1ee0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11928140e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a11d854d1f0>]}
+[0m11:34:37.401673 [debug] [MainThread]: Flushing usage events
+[0m11:36:33.711189 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15be69a390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15beb15c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15be6995e0>]}
+
+
+============================== 11:36:33.713468 | 4d1af323-f368-4204-a95e-df71f5271c07 ==============================
+[0m11:36:33.713468 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:36:33.713818 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'write_json': 'True', 'fail_fast': 'False', 'quiet': 'False', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible/logs', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'warn_error': 'None', 'static_parser': 'True', 'partial_parse': 'True', 'use_colors': 'True', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'printer_width': '80', 'log_format': 'default', 'target_path': 'None'}
+[0m11:36:33.867158 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b0e1b140>]}
+[0m11:36:33.921642 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b0ce89b0>]}
+[0m11:36:33.922120 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:36:33.926794 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:36:33.935542 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:36:33.935758 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:36:33.938908 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b0cf4fe0>]}
+[0m11:36:33.943595 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b09018b0>]}
+[0m11:36:33.943898 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:36:33.945159 [info ] [MainThread]: 
+[0m11:36:33.945781 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:36:33.946701 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:36:33.953422 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:36:33.953676 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:36:33.953869 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:33.959934 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.960743 [debug] [ThreadPool]: On list_eval: Close
+[0m11:36:33.963081 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:36:33.963508 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:36:33.967106 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:33.967331 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:36:33.967609 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:36:33.971864 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.972621 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:33.972830 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:36:33.973215 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.973401 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:33.973556 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:36:33.973982 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.974506 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:36:33.974690 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:33.974854 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:36:33.975187 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.975372 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:36:33.977557 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:36:33.980608 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:36:33.980810 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:36:33.980962 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:36:33.984888 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:33.985099 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:36:33.985285 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:36:34.000668 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:34.001474 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:36:34.002087 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:36:34.002355 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:36:34.004572 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b0cea750>]}
+[0m11:36:34.004855 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:34.005034 [debug] [MainThread]: On master: BEGIN
+[0m11:36:34.005191 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:36:34.010090 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:34.010332 [debug] [MainThread]: On master: COMMIT
+[0m11:36:34.010522 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:34.010688 [debug] [MainThread]: On master: COMMIT
+[0m11:36:34.011050 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:34.011237 [debug] [MainThread]: On master: Close
+[0m11:36:34.012709 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:36:34.012967 [info ] [MainThread]: 
+[0m11:36:34.014459 [debug] [Thread-1 (]: Began running node model.eval_ambiguous_plausible.orders
+[0m11:36:34.014760 [info ] [Thread-1 (]: 1 of 2 START sql table model main.orders ....................................... [RUN]
+[0m11:36:34.015187 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_ambiguous_plausible.orders'
+[0m11:36:34.015389 [debug] [Thread-1 (]: Began compiling node model.eval_ambiguous_plausible.orders
+[0m11:36:34.018995 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.019424 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (compile): 11:36:34.015505 => 11:36:34.019279
+[0m11:36:34.019658 [debug] [Thread-1 (]: Began executing node model.eval_ambiguous_plausible.orders
+[0m11:36:34.038479 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.038876 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.039100 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: BEGIN
+[0m11:36:34.039281 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:36:34.044381 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.044629 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.044823 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."orders__dbt_tmp"
+  
+    as (
+      
+select * from (values
+    (1, 'GB', 42.00), (2, 'GB', 38.50), (3, 'FR', 51.20),
+    (4, 'FR', 47.90), (5, 'DE', 44.10)
+) as t(order_id, country, order_total)
+    );
+  
+  
+[0m11:36:34.045728 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.049216 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.049451 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+alter table "eval"."main"."orders" rename to "orders__dbt_backup"
+[0m11:36:34.049984 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.051538 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.051788 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+alter table "eval"."main"."orders__dbt_tmp" rename to "orders"
+[0m11:36:34.052201 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.062944 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:36:34.063179 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.063368 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:36:34.067317 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.070236 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:36:34.070468 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+drop table if exists "eval"."main"."orders__dbt_backup" cascade
+[0m11:36:34.072083 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.072988 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (execute): 11:36:34.019800 => 11:36:34.072858
+[0m11:36:34.073196 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: Close
+[0m11:36:34.079796 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '4d1af323-f368-4204-a95e-df71f5271c07', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b0828710>]}
+[0m11:36:34.080239 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.orders .................................. [[32mOK[0m in 0.06s]
+[0m11:36:34.080600 [debug] [Thread-1 (]: Finished running node model.eval_ambiguous_plausible.orders
+[0m11:36:34.081260 [debug] [Thread-1 (]: Began running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:36:34.081497 [info ] [Thread-1 (]: 2 of 2 START test assert_expected_countries .................................... [RUN]
+[0m11:36:34.081890 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_ambiguous_plausible.orders, now test.eval_ambiguous_plausible.assert_expected_countries)
+[0m11:36:34.082098 [debug] [Thread-1 (]: Began compiling node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:36:34.083702 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:36:34.084095 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (compile): 11:36:34.082218 => 11:36:34.083958
+[0m11:36:34.084306 [debug] [Thread-1 (]: Began executing node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:36:34.092355 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:36:34.092765 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:36:34.093035 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: BEGIN
+[0m11:36:34.093225 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:36:34.097257 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.097543 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:36:34.097771 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_ambiguous_plausible.assert_expected_countries"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      -- Fails because FR/DE are not in the allowed set. The sampled rows themselves look
+-- entirely normal: nothing in them explains WHY the allow-list is wrong, or whether
+-- the data or the test is at fault.
+select * from "eval"."main"."orders" where country not in ('GB')
+      
+    ) dbt_internal_test
+[0m11:36:34.098697 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:34.100016 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (execute): 11:36:34.084432 => 11:36:34.099853
+[0m11:36:34.100259 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: ROLLBACK
+[0m11:36:34.100727 [debug] [Thread-1 (]: Failed to rollback 'test.eval_ambiguous_plausible.assert_expected_countries'
+[0m11:36:34.100917 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: Close
+[0m11:36:34.102811 [error] [Thread-1 (]: 2 of 2 FAIL 3 assert_expected_countries ........................................ [[31mFAIL 3[0m in 0.02s]
+[0m11:36:34.103222 [debug] [Thread-1 (]: Finished running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:36:34.104582 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:34.104797 [debug] [MainThread]: On master: BEGIN
+[0m11:36:34.104986 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:36:34.109663 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:34.109891 [debug] [MainThread]: On master: COMMIT
+[0m11:36:34.110068 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:34.110233 [debug] [MainThread]: On master: COMMIT
+[0m11:36:34.110561 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:34.110750 [debug] [MainThread]: On master: Close
+[0m11:36:34.112382 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:36:34.112598 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:36:34.112757 [debug] [MainThread]: Connection 'test.eval_ambiguous_plausible.assert_expected_countries' was properly closed.
+[0m11:36:34.112977 [info ] [MainThread]: 
+[0m11:36:34.113193 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:36:34.113598 [debug] [MainThread]: Command end result
+[0m11:36:34.117310 [info ] [MainThread]: 
+[0m11:36:34.117614 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:36:34.117834 [info ] [MainThread]: 
+[0m11:36:34.118050 [error] [MainThread]: [31mFailure in test assert_expected_countries (tests/assert_expected_countries.sql)[0m
+[0m11:36:34.118234 [error] [MainThread]:   Got 3 results, configured to fail if != 0
+[0m11:36:34.118410 [info ] [MainThread]: 
+[0m11:36:34.118586 [info ] [MainThread]:   compiled Code at target/compiled/eval_ambiguous_plausible/tests/assert_expected_countries.sql
+[0m11:36:34.118774 [info ] [MainThread]: 
+[0m11:36:34.118969 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:36:34.119350 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15bec04ef0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15bec079b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7a15b094cbf0>]}
+[0m11:36:34.119583 [debug] [MainThread]: Flushing usage events
+[0m11:39:49.838512 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb4d7a360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb5190410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb51925d0>]}
+
+
+============================== 11:39:49.842639 | 6c100efa-b459-4875-8119-4f19d0b5a00e ==============================
+[0m11:39:49.842639 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:39:49.843025 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'target_path': 'None', 'version_check': 'True', 'introspect': 'True', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible/logs', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_plausible', 'log_format': 'default', 'no_print': 'None', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'warn_error': 'None', 'debug': 'False', 'quiet': 'False', 'write_json': 'True', 'partial_parse': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'indirect_selection': 'eager', 'static_parser': 'True', 'use_experimental_parser': 'False', 'printer_width': '80'}
+[0m11:39:50.126578 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788ba74a7e90>]}
+[0m11:39:50.182715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788ba73c7ef0>]}
+[0m11:39:50.184285 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:39:50.189417 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:39:50.218432 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:39:50.218731 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:39:50.222447 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788ba71388c0>]}
+[0m11:39:50.227247 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788ba71d5700>]}
+[0m11:39:50.227506 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:39:50.228551 [info ] [MainThread]: 
+[0m11:39:50.229087 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:39:50.230032 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:39:50.236824 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:39:50.237065 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:39:50.237254 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:39:50.252950 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.253882 [debug] [ThreadPool]: On list_eval: Close
+[0m11:39:50.256557 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:39:50.256994 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:39:50.260668 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:39:50.260886 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:39:50.261129 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:39:50.266264 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.267063 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:39:50.267257 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:39:50.267892 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.268110 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:39:50.268280 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:39:50.269171 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.269663 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:39:50.269865 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:39:50.270024 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:39:50.270415 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.270633 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:39:50.273254 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:39:50.276423 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:39:50.276628 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:39:50.276782 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:39:50.280713 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.280918 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:39:50.281090 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:39:50.298414 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:39:50.299196 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:39:50.300204 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:39:50.300422 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:39:50.302584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb4e4e060>]}
+[0m11:39:50.302859 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:39:50.303033 [debug] [MainThread]: On master: BEGIN
+[0m11:39:50.303190 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:39:50.307987 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:39:50.308212 [debug] [MainThread]: On master: COMMIT
+[0m11:39:50.308442 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:39:50.308604 [debug] [MainThread]: On master: COMMIT
+[0m11:39:50.308925 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:39:50.309106 [debug] [MainThread]: On master: Close
+[0m11:39:50.311202 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:39:50.311492 [info ] [MainThread]: 
+[0m11:39:50.313366 [debug] [Thread-1 (]: Began running node model.eval_ambiguous_plausible.orders
+[0m11:39:50.313683 [info ] [Thread-1 (]: 1 of 2 START sql table model main.orders ....................................... [RUN]
+[0m11:39:50.314149 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_ambiguous_plausible.orders'
+[0m11:39:50.314366 [debug] [Thread-1 (]: Began compiling node model.eval_ambiguous_plausible.orders
+[0m11:39:50.318024 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.318759 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (compile): 11:39:50.314486 => 11:39:50.318607
+[0m11:39:50.318996 [debug] [Thread-1 (]: Began executing node model.eval_ambiguous_plausible.orders
+[0m11:39:50.337288 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.337685 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.337901 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: BEGIN
+[0m11:39:50.338077 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:39:50.343606 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.343870 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.344072 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."orders__dbt_tmp"
+  
+    as (
+      
+select * from (values
+    (1, 'GB', 42.00), (2, 'GB', 38.50), (3, 'FR', 51.20),
+    (4, 'FR', 47.90), (5, 'DE', 44.10)
+) as t(order_id, country, order_total)
+    );
+  
+  
+[0m11:39:50.346445 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.349938 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.350178 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+alter table "eval"."main"."orders" rename to "orders__dbt_backup"
+[0m11:39:50.350809 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.352433 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.352664 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+alter table "eval"."main"."orders__dbt_tmp" rename to "orders"
+[0m11:39:50.353155 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.364283 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:39:50.364517 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.364731 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: COMMIT
+[0m11:39:50.368584 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.371329 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_plausible.orders"
+[0m11:39:50.371593 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_plausible.orders"} */
+drop table if exists "eval"."main"."orders__dbt_backup" cascade
+[0m11:39:50.373722 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.374598 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_plausible.orders (execute): 11:39:50.319132 => 11:39:50.374477
+[0m11:39:50.374802 [debug] [Thread-1 (]: On model.eval_ambiguous_plausible.orders: Close
+[0m11:39:50.380922 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '6c100efa-b459-4875-8119-4f19d0b5a00e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788ba6f16240>]}
+[0m11:39:50.381317 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.orders .................................. [[32mOK[0m in 0.07s]
+[0m11:39:50.381682 [debug] [Thread-1 (]: Finished running node model.eval_ambiguous_plausible.orders
+[0m11:39:50.382383 [debug] [Thread-1 (]: Began running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:39:50.382614 [info ] [Thread-1 (]: 2 of 2 START test assert_expected_countries .................................... [RUN]
+[0m11:39:50.383003 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_ambiguous_plausible.orders, now test.eval_ambiguous_plausible.assert_expected_countries)
+[0m11:39:50.383209 [debug] [Thread-1 (]: Began compiling node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:39:50.384977 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:39:50.385438 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (compile): 11:39:50.383323 => 11:39:50.385232
+[0m11:39:50.385689 [debug] [Thread-1 (]: Began executing node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:39:50.394503 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:39:50.394914 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:39:50.395134 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: BEGIN
+[0m11:39:50.395316 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:39:50.399603 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.399924 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_plausible.assert_expected_countries"
+[0m11:39:50.400121 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_ambiguous_plausible.assert_expected_countries"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      -- Fails because FR/DE are not in the allowed set. The sampled rows themselves look
+-- entirely normal: nothing in them explains WHY the allow-list is wrong, or whether
+-- the data or the test is at fault.
+select * from "eval"."main"."orders" where country not in ('GB')
+      
+    ) dbt_internal_test
+[0m11:39:50.401846 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:39:50.403083 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_plausible.assert_expected_countries (execute): 11:39:50.385836 => 11:39:50.402931
+[0m11:39:50.403348 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: ROLLBACK
+[0m11:39:50.403868 [debug] [Thread-1 (]: Failed to rollback 'test.eval_ambiguous_plausible.assert_expected_countries'
+[0m11:39:50.404068 [debug] [Thread-1 (]: On test.eval_ambiguous_plausible.assert_expected_countries: Close
+[0m11:39:50.405839 [error] [Thread-1 (]: 2 of 2 FAIL 3 assert_expected_countries ........................................ [[31mFAIL 3[0m in 0.02s]
+[0m11:39:50.406271 [debug] [Thread-1 (]: Finished running node test.eval_ambiguous_plausible.assert_expected_countries
+[0m11:39:50.407444 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:39:50.407715 [debug] [MainThread]: On master: BEGIN
+[0m11:39:50.407904 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:39:50.412321 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:39:50.412528 [debug] [MainThread]: On master: COMMIT
+[0m11:39:50.412698 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:39:50.412853 [debug] [MainThread]: On master: COMMIT
+[0m11:39:50.413181 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:39:50.413352 [debug] [MainThread]: On master: Close
+[0m11:39:50.414983 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:39:50.415184 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:39:50.415337 [debug] [MainThread]: Connection 'test.eval_ambiguous_plausible.assert_expected_countries' was properly closed.
+[0m11:39:50.415529 [info ] [MainThread]: 
+[0m11:39:50.415946 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.19 seconds (0.19s).
+[0m11:39:50.416402 [debug] [MainThread]: Command end result
+[0m11:39:50.420298 [info ] [MainThread]: 
+[0m11:39:50.420617 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:39:50.420840 [info ] [MainThread]: 
+[0m11:39:50.421050 [error] [MainThread]: [31mFailure in test assert_expected_countries (tests/assert_expected_countries.sql)[0m
+[0m11:39:50.421256 [error] [MainThread]:   Got 3 results, configured to fail if != 0
+[0m11:39:50.421435 [info ] [MainThread]: 
+[0m11:39:50.421611 [info ] [MainThread]:   compiled Code at target/compiled/eval_ambiguous_plausible/tests/assert_expected_countries.sql
+[0m11:39:50.421796 [info ] [MainThread]: 
+[0m11:39:50.421994 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:39:50.422391 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb59126f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb4e4d400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x788bb51925d0>]}
+[0m11:39:50.422616 [debug] [MainThread]: Flushing usage events

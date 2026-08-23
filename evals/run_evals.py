@@ -32,6 +32,7 @@ FIXTURES = Path(__file__).parent / "fixtures"
 @dataclass
 class Result:
     name: str
+    signal: str
     outcome: str
     confidence: str
     cause: str
@@ -42,6 +43,7 @@ def build(fixture: Path) -> bool:
     subprocess.run(
         ["dbt", "build", "--project-dir", str(fixture), "--profiles-dir", str(fixture)],
         capture_output=True,
+        check=False,
         text=True,
         cwd=fixture,
     )
@@ -86,6 +88,7 @@ def run_fixture(fixture: Path) -> Result | None:
     a = analyze(ctx)
     return Result(
         name=expected["name"],
+        signal=expected.get("signal", "strong"),
         outcome=score(expected, a.root_cause, a.confidence),
         confidence=a.confidence,
         cause=a.root_cause[:100],
@@ -104,9 +107,10 @@ def main() -> None:
     print("-" * 54)
     for r in results:
         print(f"{r.name:<22} {r.outcome:<18} {r.confidence:<12}")
+        print(f"    -> {r.cause}")
 
-    strong = [r for r in results if r.outcome in {"correct", "overconfident", "underconfident"}]
-    weak = [r for r in results if r.outcome in {"honest_uncertain", "wrong_but_flagged"}]
+    strong = [r for r in results if r.signal == "strong"]
+    weak = [r for r in results if r.signal == "weak"]
     over = [r for r in results if r.outcome == "overconfident"]
 
     print()

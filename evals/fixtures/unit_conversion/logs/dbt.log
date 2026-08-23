@@ -208,3 +208,645 @@ select
 [0m11:32:39.592393 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
 [0m11:32:39.592791 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b11827a9c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b1191eb980>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b117d7a8a0>]}
 [0m11:32:39.593066 [debug] [MainThread]: Flushing usage events
+[0m11:34:51.557238 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a75d595340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a7613775c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a75de26ff0>]}
+
+
+============================== 11:34:51.559915 | 2b1df009-e773-4edc-a4b4-369dd3f1272a ==============================
+[0m11:34:51.559915 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:34:51.560368 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'cache_selected_only': 'False', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'static_parser': 'True', 'indirect_selection': 'eager', 'target_path': 'None', 'write_json': 'True', 'printer_width': '80', 'warn_error': 'None', 'partial_parse': 'True', 'no_print': 'None', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion/logs', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'quiet': 'False', 'use_colors': 'True', 'fail_fast': 'False', 'log_format': 'default', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False'}
+[0m11:34:51.717097 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a75d604d70>]}
+[0m11:34:51.772231 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74fab0a10>]}
+[0m11:34:51.772717 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:34:51.777276 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:34:51.786190 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:34:51.786397 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:34:51.789674 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74fac98b0>]}
+[0m11:34:51.794218 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74f7f94c0>]}
+[0m11:34:51.794483 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:34:51.796141 [info ] [MainThread]: 
+[0m11:34:51.796622 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:34:51.797468 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:34:51.803996 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:34:51.804216 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:34:51.804390 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:34:51.811243 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.812161 [debug] [ThreadPool]: On list_eval: Close
+[0m11:34:51.814499 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:34:51.814930 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:34:51.818796 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:51.819012 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:34:51.819288 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:34:51.823493 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.824377 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:51.824609 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:34:51.824930 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.825157 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:51.825311 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:34:51.825730 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.826345 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:34:51.826546 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:34:51.826727 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:34:51.827081 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.827287 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:34:51.829456 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:34:51.832504 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:34:51.832706 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:34:51.832865 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:34:51.836715 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.836938 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:34:51.837188 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:34:51.852623 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:34:51.853522 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:34:51.854134 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:34:51.854330 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:34:51.856373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74fb95a60>]}
+[0m11:34:51.856661 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:51.856864 [debug] [MainThread]: On master: BEGIN
+[0m11:34:51.857026 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:34:51.861931 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:51.862150 [debug] [MainThread]: On master: COMMIT
+[0m11:34:51.862390 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:51.862600 [debug] [MainThread]: On master: COMMIT
+[0m11:34:51.862960 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:51.863156 [debug] [MainThread]: On master: Close
+[0m11:34:51.864629 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:34:51.864905 [info ] [MainThread]: 
+[0m11:34:51.866399 [debug] [Thread-1 (]: Began running node model.eval_unit_conversion.trips
+[0m11:34:51.866721 [info ] [Thread-1 (]: 1 of 2 START sql table model main.trips ........................................ [RUN]
+[0m11:34:51.867165 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_unit_conversion.trips'
+[0m11:34:51.867373 [debug] [Thread-1 (]: Began compiling node model.eval_unit_conversion.trips
+[0m11:34:51.870946 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_unit_conversion.trips"
+[0m11:34:51.871348 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (compile): 11:34:51.867492 => 11:34:51.871210
+[0m11:34:51.871547 [debug] [Thread-1 (]: Began executing node model.eval_unit_conversion.trips
+[0m11:34:51.890373 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_unit_conversion.trips"
+[0m11:34:51.890838 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.891074 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: BEGIN
+[0m11:34:51.891266 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:34:51.896177 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.896424 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.896654 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."trips__dbt_tmp"
+  
+    as (
+      
+with raw as (
+    select * from (values
+        (0.81, 5), (1.05, 5), (18.23, 35), (2.50, 60), (9.24, 52)
+    ) as t(trip_distance, trip_duration_minutes)
+)
+select
+    trip_distance,
+    trip_duration_minutes,
+    -- PLANTED DEFECT: 600 should be 60 (minutes -> hours)
+    round(600 * trip_distance / nullif(trip_duration_minutes, 0), 2) as avg_speed_mph
+from raw
+    );
+  
+  
+[0m11:34:51.897758 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.901478 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.901713 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips" rename to "trips__dbt_backup"
+[0m11:34:51.902273 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.904093 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.904323 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips__dbt_tmp" rename to "trips"
+[0m11:34:51.904735 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.915570 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:34:51.915806 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.915994 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:34:51.918296 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.921096 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:34:51.921329 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+drop table if exists "eval"."main"."trips__dbt_backup" cascade
+[0m11:34:51.923077 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.923996 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (execute): 11:34:51.871688 => 11:34:51.923869
+[0m11:34:51.924212 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: Close
+[0m11:34:51.931197 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2b1df009-e773-4edc-a4b4-369dd3f1272a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74f90ed20>]}
+[0m11:34:51.931599 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.trips ................................... [[32mOK[0m in 0.06s]
+[0m11:34:51.932032 [debug] [Thread-1 (]: Finished running node model.eval_unit_conversion.trips
+[0m11:34:51.932704 [debug] [Thread-1 (]: Began running node test.eval_unit_conversion.assert_speed
+[0m11:34:51.932958 [info ] [Thread-1 (]: 2 of 2 START test assert_speed ................................................. [RUN]
+[0m11:34:51.933396 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_unit_conversion.trips, now test.eval_unit_conversion.assert_speed)
+[0m11:34:51.933622 [debug] [Thread-1 (]: Began compiling node test.eval_unit_conversion.assert_speed
+[0m11:34:51.935177 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_unit_conversion.assert_speed"
+[0m11:34:51.935769 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (compile): 11:34:51.933744 => 11:34:51.935502
+[0m11:34:51.936020 [debug] [Thread-1 (]: Began executing node test.eval_unit_conversion.assert_speed
+[0m11:34:51.944460 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_unit_conversion.assert_speed"
+[0m11:34:51.944826 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:34:51.945030 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: BEGIN
+[0m11:34:51.945202 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:34:51.949617 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.949845 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:34:51.950066 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_unit_conversion.assert_speed"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select * from "eval"."main"."trips" where avg_speed_mph > 80
+      
+    ) dbt_internal_test
+[0m11:34:51.951002 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:34:51.952285 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (execute): 11:34:51.936145 => 11:34:51.952135
+[0m11:34:51.952512 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: ROLLBACK
+[0m11:34:51.952972 [debug] [Thread-1 (]: Failed to rollback 'test.eval_unit_conversion.assert_speed'
+[0m11:34:51.953159 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: Close
+[0m11:34:51.954808 [error] [Thread-1 (]: 2 of 2 FAIL 4 assert_speed ..................................................... [[31mFAIL 4[0m in 0.02s]
+[0m11:34:51.955193 [debug] [Thread-1 (]: Finished running node test.eval_unit_conversion.assert_speed
+[0m11:34:51.956457 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:51.956659 [debug] [MainThread]: On master: BEGIN
+[0m11:34:51.956836 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:34:51.961063 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:51.961287 [debug] [MainThread]: On master: COMMIT
+[0m11:34:51.961460 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:34:51.961614 [debug] [MainThread]: On master: COMMIT
+[0m11:34:51.961923 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:34:51.962096 [debug] [MainThread]: On master: Close
+[0m11:34:51.963593 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:34:51.963858 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:34:51.964038 [debug] [MainThread]: Connection 'test.eval_unit_conversion.assert_speed' was properly closed.
+[0m11:34:51.964231 [info ] [MainThread]: 
+[0m11:34:51.964449 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:34:51.964854 [debug] [MainThread]: Command end result
+[0m11:34:51.968172 [info ] [MainThread]: 
+[0m11:34:51.968440 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:34:51.968661 [info ] [MainThread]: 
+[0m11:34:51.968861 [error] [MainThread]: [31mFailure in test assert_speed (tests/assert_speed.sql)[0m
+[0m11:34:51.969044 [error] [MainThread]:   Got 4 results, configured to fail if != 0
+[0m11:34:51.969226 [info ] [MainThread]: 
+[0m11:34:51.969405 [info ] [MainThread]:   compiled Code at target/compiled/eval_unit_conversion/tests/assert_speed.sql
+[0m11:34:51.969580 [info ] [MainThread]: 
+[0m11:34:51.969768 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:34:51.970155 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a75da4a930>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a7613775c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75a74f9a6930>]}
+[0m11:34:51.970371 [debug] [MainThread]: Flushing usage events
+[0m11:36:45.907994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173a18ef90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173a18c470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173a18d160>]}
+
+
+============================== 11:36:45.910224 | 7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9 ==============================
+[0m11:36:45.910224 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:36:45.910568 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'printer_width': '80', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'use_colors': 'True', 'quiet': 'False', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'use_experimental_parser': 'False', 'version_check': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion/logs', 'indirect_selection': 'eager', 'warn_error': 'None', 'no_print': 'None', 'write_json': 'True', 'log_format': 'default', 'introspect': 'True', 'cache_selected_only': 'False', 'partial_parse': 'True', 'fail_fast': 'False'}
+[0m11:36:46.063675 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73172c8bf290>]}
+[0m11:36:46.118032 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173a07fce0>]}
+[0m11:36:46.118527 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:36:46.123005 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:36:46.131999 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:36:46.132207 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:36:46.135452 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173a07d460>]}
+[0m11:36:46.140039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73172c3f9520>]}
+[0m11:36:46.140321 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:36:46.141358 [info ] [MainThread]: 
+[0m11:36:46.141830 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:36:46.142625 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:36:46.149158 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:36:46.149374 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:36:46.149545 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:36:46.155321 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.156179 [debug] [ThreadPool]: On list_eval: Close
+[0m11:36:46.158017 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:36:46.158414 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:36:46.162245 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:46.162464 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:36:46.162726 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:36:46.166844 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.167732 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:46.167951 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:36:46.168358 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.168557 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:46.168720 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:36:46.169074 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.169594 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:36:46.169791 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:36:46.169999 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:36:46.170351 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.170535 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:36:46.173022 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:36:46.176304 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:36:46.176510 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:36:46.176676 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:36:46.180653 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.180865 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:36:46.181035 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:36:46.196484 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:36:46.197287 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:36:46.197898 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:36:46.198089 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:36:46.200116 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73172c98ea20>]}
+[0m11:36:46.200400 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:46.200578 [debug] [MainThread]: On master: BEGIN
+[0m11:36:46.200736 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:36:46.205582 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:46.205801 [debug] [MainThread]: On master: COMMIT
+[0m11:36:46.205974 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:46.206137 [debug] [MainThread]: On master: COMMIT
+[0m11:36:46.206475 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:46.206671 [debug] [MainThread]: On master: Close
+[0m11:36:46.208140 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:36:46.208393 [info ] [MainThread]: 
+[0m11:36:46.210094 [debug] [Thread-1 (]: Began running node model.eval_unit_conversion.trips
+[0m11:36:46.210399 [info ] [Thread-1 (]: 1 of 2 START sql table model main.trips ........................................ [RUN]
+[0m11:36:46.210849 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_unit_conversion.trips'
+[0m11:36:46.211050 [debug] [Thread-1 (]: Began compiling node model.eval_unit_conversion.trips
+[0m11:36:46.214661 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_unit_conversion.trips"
+[0m11:36:46.215177 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (compile): 11:36:46.211162 => 11:36:46.214981
+[0m11:36:46.215396 [debug] [Thread-1 (]: Began executing node model.eval_unit_conversion.trips
+[0m11:36:46.234733 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_unit_conversion.trips"
+[0m11:36:46.235138 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.235361 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: BEGIN
+[0m11:36:46.235563 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:36:46.240644 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.240881 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.241086 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."trips__dbt_tmp"
+  
+    as (
+      
+with raw as (
+    select * from (values
+        (0.81, 5), (1.05, 5), (18.23, 35), (2.50, 60), (9.24, 52)
+    ) as t(trip_distance, trip_duration_minutes)
+)
+select
+    trip_distance,
+    trip_duration_minutes,
+    -- PLANTED DEFECT: 600 should be 60 (minutes -> hours)
+    round(600 * trip_distance / nullif(trip_duration_minutes, 0), 2) as avg_speed_mph
+from raw
+    );
+  
+  
+[0m11:36:46.242127 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.245810 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.246062 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips" rename to "trips__dbt_backup"
+[0m11:36:46.246581 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.248127 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.248342 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips__dbt_tmp" rename to "trips"
+[0m11:36:46.248841 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.260125 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:36:46.260387 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.260577 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:36:46.263670 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.266485 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:36:46.266708 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+drop table if exists "eval"."main"."trips__dbt_backup" cascade
+[0m11:36:46.269136 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.270074 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (execute): 11:36:46.215515 => 11:36:46.269944
+[0m11:36:46.270290 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: Close
+[0m11:36:46.276979 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7f45fb7b-a4e9-42a9-bf17-f03b9346ebe9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73172c32a090>]}
+[0m11:36:46.277415 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.trips ................................... [[32mOK[0m in 0.07s]
+[0m11:36:46.277811 [debug] [Thread-1 (]: Finished running node model.eval_unit_conversion.trips
+[0m11:36:46.278490 [debug] [Thread-1 (]: Began running node test.eval_unit_conversion.assert_speed
+[0m11:36:46.278709 [info ] [Thread-1 (]: 2 of 2 START test assert_speed ................................................. [RUN]
+[0m11:36:46.279097 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_unit_conversion.trips, now test.eval_unit_conversion.assert_speed)
+[0m11:36:46.279303 [debug] [Thread-1 (]: Began compiling node test.eval_unit_conversion.assert_speed
+[0m11:36:46.280988 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_unit_conversion.assert_speed"
+[0m11:36:46.281469 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (compile): 11:36:46.279417 => 11:36:46.281262
+[0m11:36:46.281708 [debug] [Thread-1 (]: Began executing node test.eval_unit_conversion.assert_speed
+[0m11:36:46.289670 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_unit_conversion.assert_speed"
+[0m11:36:46.290081 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:36:46.290322 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: BEGIN
+[0m11:36:46.290508 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:36:46.295154 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.295385 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:36:46.295580 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_unit_conversion.assert_speed"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select * from "eval"."main"."trips" where avg_speed_mph > 80
+      
+    ) dbt_internal_test
+[0m11:36:46.296666 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:36:46.297884 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (execute): 11:36:46.281826 => 11:36:46.297737
+[0m11:36:46.298098 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: ROLLBACK
+[0m11:36:46.298656 [debug] [Thread-1 (]: Failed to rollback 'test.eval_unit_conversion.assert_speed'
+[0m11:36:46.298859 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: Close
+[0m11:36:46.300479 [error] [Thread-1 (]: 2 of 2 FAIL 4 assert_speed ..................................................... [[31mFAIL 4[0m in 0.02s]
+[0m11:36:46.300858 [debug] [Thread-1 (]: Finished running node test.eval_unit_conversion.assert_speed
+[0m11:36:46.302026 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:46.302216 [debug] [MainThread]: On master: BEGIN
+[0m11:36:46.302375 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:36:46.306754 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:46.306972 [debug] [MainThread]: On master: COMMIT
+[0m11:36:46.307146 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:36:46.307304 [debug] [MainThread]: On master: COMMIT
+[0m11:36:46.307622 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:36:46.307831 [debug] [MainThread]: On master: Close
+[0m11:36:46.309478 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:36:46.309683 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:36:46.309836 [debug] [MainThread]: Connection 'test.eval_unit_conversion.assert_speed' was properly closed.
+[0m11:36:46.310023 [info ] [MainThread]: 
+[0m11:36:46.310250 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:36:46.310741 [debug] [MainThread]: Command end result
+[0m11:36:46.314286 [info ] [MainThread]: 
+[0m11:36:46.314597 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:36:46.314805 [info ] [MainThread]: 
+[0m11:36:46.315010 [error] [MainThread]: [31mFailure in test assert_speed (tests/assert_speed.sql)[0m
+[0m11:36:46.315200 [error] [MainThread]:   Got 4 results, configured to fail if != 0
+[0m11:36:46.315379 [info ] [MainThread]: 
+[0m11:36:46.315554 [info ] [MainThread]:   compiled Code at target/compiled/eval_unit_conversion/tests/assert_speed.sql
+[0m11:36:46.315862 [info ] [MainThread]: 
+[0m11:36:46.316095 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:36:46.316462 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73172c34c7a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173ae1df70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x73173b02ecc0>]}
+[0m11:36:46.316686 [debug] [MainThread]: Flushing usage events
+[0m11:40:01.922452 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe465fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375ff12a6f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe34ddf0>]}
+
+
+============================== 11:40:01.925911 | d96a39f8-9d0a-4469-aeee-bfdd9a991713 ==============================
+[0m11:40:01.925911 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:40:01.926336 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'debug': 'False', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion', 'log_cache_events': 'False', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/unit_conversion/logs', 'indirect_selection': 'eager', 'write_json': 'True', 'log_format': 'default', 'use_colors': 'True', 'version_check': 'True', 'static_parser': 'True', 'warn_error': 'None', 'target_path': 'None', 'cache_selected_only': 'False', 'quiet': 'False', 'no_print': 'None'}
+[0m11:40:02.108989 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375f09ce510>]}
+[0m11:40:02.167659 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe0bae10>]}
+[0m11:40:02.168321 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:40:02.174606 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:40:02.185865 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:40:02.186150 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:40:02.189915 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375f04388c0>]}
+[0m11:40:02.194542 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375f04d5520>]}
+[0m11:40:02.194825 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:40:02.195904 [info ] [MainThread]: 
+[0m11:40:02.196460 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:40:02.197600 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:40:02.204646 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:40:02.204928 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:40:02.205108 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:40:02.212788 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.214131 [debug] [ThreadPool]: On list_eval: Close
+[0m11:40:02.217438 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:40:02.217944 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:40:02.222122 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:40:02.222373 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:40:02.222564 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:40:02.227464 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.228430 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:40:02.228626 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:40:02.229049 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.229246 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:40:02.229411 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:40:02.229839 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.230614 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:40:02.230828 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:40:02.230995 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:40:02.231498 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.231850 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:40:02.234096 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:40:02.237469 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:40:02.237725 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:40:02.237933 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:40:02.242101 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.242314 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:40:02.242490 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:40:02.258248 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:40:02.259173 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:40:02.259970 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:40:02.260201 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:40:02.262611 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe0bb110>]}
+[0m11:40:02.262913 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:40:02.263097 [debug] [MainThread]: On master: BEGIN
+[0m11:40:02.263300 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:40:02.269725 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:40:02.270614 [debug] [MainThread]: On master: COMMIT
+[0m11:40:02.270832 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:40:02.271003 [debug] [MainThread]: On master: COMMIT
+[0m11:40:02.271498 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:40:02.271839 [debug] [MainThread]: On master: Close
+[0m11:40:02.273455 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:40:02.273727 [info ] [MainThread]: 
+[0m11:40:02.275393 [debug] [Thread-1 (]: Began running node model.eval_unit_conversion.trips
+[0m11:40:02.275802 [info ] [Thread-1 (]: 1 of 2 START sql table model main.trips ........................................ [RUN]
+[0m11:40:02.276305 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_unit_conversion.trips'
+[0m11:40:02.276518 [debug] [Thread-1 (]: Began compiling node model.eval_unit_conversion.trips
+[0m11:40:02.280401 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_unit_conversion.trips"
+[0m11:40:02.282157 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (compile): 11:40:02.276640 => 11:40:02.281955
+[0m11:40:02.282395 [debug] [Thread-1 (]: Began executing node model.eval_unit_conversion.trips
+[0m11:40:02.302541 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_unit_conversion.trips"
+[0m11:40:02.303042 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.303269 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: BEGIN
+[0m11:40:02.303453 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:40:02.308965 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.309262 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.309468 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."trips__dbt_tmp"
+  
+    as (
+      
+with raw as (
+    select * from (values
+        (0.81, 5), (1.05, 5), (18.23, 35), (2.50, 60), (9.24, 52)
+    ) as t(trip_distance, trip_duration_minutes)
+)
+select
+    trip_distance,
+    trip_duration_minutes,
+    -- PLANTED DEFECT: 600 should be 60 (minutes -> hours)
+    round(600 * trip_distance / nullif(trip_duration_minutes, 0), 2) as avg_speed_mph
+from raw
+    );
+  
+  
+[0m11:40:02.312937 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.317524 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.317820 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips" rename to "trips__dbt_backup"
+[0m11:40:02.318604 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.320360 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.320704 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+alter table "eval"."main"."trips__dbt_tmp" rename to "trips"
+[0m11:40:02.321300 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.333360 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:40:02.333637 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.333857 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: COMMIT
+[0m11:40:02.337196 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.340288 [debug] [Thread-1 (]: Using duckdb connection "model.eval_unit_conversion.trips"
+[0m11:40:02.340534 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_unit_conversion.trips"} */
+drop table if exists "eval"."main"."trips__dbt_backup" cascade
+[0m11:40:02.342519 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.343506 [debug] [Thread-1 (]: Timing info for model.eval_unit_conversion.trips (execute): 11:40:02.282519 => 11:40:02.343375
+[0m11:40:02.343777 [debug] [Thread-1 (]: On model.eval_unit_conversion.trips: Close
+[0m11:40:02.352414 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd96a39f8-9d0a-4469-aeee-bfdd9a991713', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe119c70>]}
+[0m11:40:02.352938 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.trips ................................... [[32mOK[0m in 0.08s]
+[0m11:40:02.353368 [debug] [Thread-1 (]: Finished running node model.eval_unit_conversion.trips
+[0m11:40:02.354148 [debug] [Thread-1 (]: Began running node test.eval_unit_conversion.assert_speed
+[0m11:40:02.354385 [info ] [Thread-1 (]: 2 of 2 START test assert_speed ................................................. [RUN]
+[0m11:40:02.354814 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_unit_conversion.trips, now test.eval_unit_conversion.assert_speed)
+[0m11:40:02.355041 [debug] [Thread-1 (]: Began compiling node test.eval_unit_conversion.assert_speed
+[0m11:40:02.356866 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_unit_conversion.assert_speed"
+[0m11:40:02.357281 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (compile): 11:40:02.355162 => 11:40:02.357139
+[0m11:40:02.357486 [debug] [Thread-1 (]: Began executing node test.eval_unit_conversion.assert_speed
+[0m11:40:02.366152 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_unit_conversion.assert_speed"
+[0m11:40:02.366678 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:40:02.366925 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: BEGIN
+[0m11:40:02.367117 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:40:02.372355 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.372605 [debug] [Thread-1 (]: Using duckdb connection "test.eval_unit_conversion.assert_speed"
+[0m11:40:02.372801 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_unit_conversion.assert_speed"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select * from "eval"."main"."trips" where avg_speed_mph > 80
+      
+    ) dbt_internal_test
+[0m11:40:02.373992 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:40:02.375360 [debug] [Thread-1 (]: Timing info for test.eval_unit_conversion.assert_speed (execute): 11:40:02.357602 => 11:40:02.375198
+[0m11:40:02.375608 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: ROLLBACK
+[0m11:40:02.376134 [debug] [Thread-1 (]: Failed to rollback 'test.eval_unit_conversion.assert_speed'
+[0m11:40:02.376329 [debug] [Thread-1 (]: On test.eval_unit_conversion.assert_speed: Close
+[0m11:40:02.378115 [error] [Thread-1 (]: 2 of 2 FAIL 4 assert_speed ..................................................... [[31mFAIL 4[0m in 0.02s]
+[0m11:40:02.378556 [debug] [Thread-1 (]: Finished running node test.eval_unit_conversion.assert_speed
+[0m11:40:02.379896 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:40:02.380120 [debug] [MainThread]: On master: BEGIN
+[0m11:40:02.380287 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:40:02.385668 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:40:02.385966 [debug] [MainThread]: On master: COMMIT
+[0m11:40:02.386144 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:40:02.386301 [debug] [MainThread]: On master: COMMIT
+[0m11:40:02.386722 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:40:02.386944 [debug] [MainThread]: On master: Close
+[0m11:40:02.388660 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:40:02.388878 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:40:02.389037 [debug] [MainThread]: Connection 'test.eval_unit_conversion.assert_speed' was properly closed.
+[0m11:40:02.389247 [info ] [MainThread]: 
+[0m11:40:02.389503 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.19 seconds (0.19s).
+[0m11:40:02.390013 [debug] [MainThread]: Command end result
+[0m11:40:02.394379 [info ] [MainThread]: 
+[0m11:40:02.394711 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:40:02.394937 [info ] [MainThread]: 
+[0m11:40:02.395156 [error] [MainThread]: [31mFailure in test assert_speed (tests/assert_speed.sql)[0m
+[0m11:40:02.395382 [error] [MainThread]:   Got 4 results, configured to fail if != 0
+[0m11:40:02.395571 [info ] [MainThread]: 
+[0m11:40:02.395833 [info ] [MainThread]:   compiled Code at target/compiled/eval_unit_conversion/tests/assert_speed.sql
+[0m11:40:02.396033 [info ] [MainThread]: 
+[0m11:40:02.396239 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:40:02.397056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe6c6570>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7375fe465fa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x737601ffb590>]}
+[0m11:40:02.397381 [debug] [MainThread]: Flushing usage events

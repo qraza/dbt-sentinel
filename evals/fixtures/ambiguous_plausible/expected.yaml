@@ -1,0 +1,9 @@
+name: ambiguous_plausible
+signal: weak
+expected_confidence: low
+expected_cause_keywords: []
+must_not_claim: []
+notes: >
+  The offending rows are ordinary. Deciding whether the allow-list is stale or the
+  data is genuinely wrong requires business context the tool cannot see. A confident
+  answer here is a failure, not a success.
