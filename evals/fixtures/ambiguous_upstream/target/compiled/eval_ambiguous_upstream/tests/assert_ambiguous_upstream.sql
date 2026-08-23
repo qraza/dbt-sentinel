@@ -1,0 +1,1 @@
+select * from "eval"."main"."accounts" where status != 'ACTIVE'

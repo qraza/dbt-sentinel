@@ -1,0 +1,5 @@
+name: join_fanout
+signal: strong
+expected_confidence: high
+expected_cause_keywords: ['duplicate', 'fanout', 'fan-out', 'join', 'multiple']
+must_not_claim: ['null', 'unit']

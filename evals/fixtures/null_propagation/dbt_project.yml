@@ -1,0 +1,6 @@
+name: eval_null_propagation
+profile: eval
+version: "1.0"
+config-version: 2
+model-paths: ["models"]
+test-paths: ["tests"]

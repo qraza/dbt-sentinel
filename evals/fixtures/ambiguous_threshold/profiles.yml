@@ -1,0 +1,6 @@
+eval:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: eval.duckdb

@@ -1,0 +1,9 @@
+name: ambiguous_threshold
+signal: weak
+expected_confidence: low
+expected_cause_keywords: []
+must_not_claim: []
+notes: >
+  Revenue figures are internally consistent and plausible. Whether the 12000 threshold
+  is stale or the business genuinely underperformed cannot be determined from the data
+  alone. A confident answer here is a failure.

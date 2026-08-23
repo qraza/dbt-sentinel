@@ -1,0 +1,5 @@
+name: null_propagation
+signal: strong
+expected_confidence: high
+expected_cause_keywords: ['zero', 'divide', 'division', 'nullif', 'infinite']
+must_not_claim: ['unit conversion', 'multiplier']

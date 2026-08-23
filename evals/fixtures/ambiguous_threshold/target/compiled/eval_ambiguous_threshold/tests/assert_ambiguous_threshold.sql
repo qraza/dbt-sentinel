@@ -1,0 +1,1 @@
+select * from "eval"."main"."daily_revenue" where revenue < 12000
