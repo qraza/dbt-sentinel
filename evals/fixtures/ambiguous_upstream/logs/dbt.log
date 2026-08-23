@@ -404,3 +404,208 @@ select
 [0m11:44:49.893098 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
 [0m11:44:49.893474 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742f71ef4620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742f63a63bf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x742f73561130>]}
 [0m11:44:49.893695 [debug] [MainThread]: Flushing usage events
+[0m11:49:28.023482 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d57c560>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d837e00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d96be00>]}
+
+
+============================== 11:49:28.026437 | 267fd961-e2d3-45ed-a8e5-9e4107adae76 ==============================
+[0m11:49:28.026437 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:49:28.026855 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'introspect': 'True', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'no_print': 'None', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_upstream', 'indirect_selection': 'eager', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_upstream --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_upstream', 'log_format': 'default', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'fail_fast': 'False', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_upstream/logs', 'debug': 'False', 'log_cache_events': 'False', 'warn_error': 'None', 'static_parser': 'True', 'use_colors': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'quiet': 'False', 'partial_parse': 'True'}
+[0m11:49:28.191151 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d951670>]}
+[0m11:49:28.246173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d5becc0>]}
+[0m11:49:28.246737 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:49:28.251545 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:49:28.260690 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:49:28.260921 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:49:28.264414 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d46e9c0>]}
+[0m11:49:28.268748 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71aaff9e1580>]}
+[0m11:49:28.269188 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:49:28.270312 [info ] [MainThread]: 
+[0m11:49:28.270834 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:49:28.271716 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:49:28.278371 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:49:28.278592 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:49:28.278768 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:49:28.284621 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.285404 [debug] [ThreadPool]: On list_eval: Close
+[0m11:49:28.287231 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:49:28.287628 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:49:28.291735 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:49:28.291972 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:49:28.292140 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:49:28.296560 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.297467 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:49:28.297670 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:49:28.298016 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.298223 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:49:28.298457 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:49:28.298875 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.299383 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:49:28.299566 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:49:28.299789 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:49:28.300212 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.300402 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:49:28.302439 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:49:28.305519 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:49:28.305801 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:49:28.306013 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:49:28.309919 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.310128 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:49:28.310345 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:49:28.325339 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:49:28.326226 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:49:28.326838 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:49:28.327026 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:49:28.329180 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d952f60>]}
+[0m11:49:28.329469 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:49:28.329664 [debug] [MainThread]: On master: BEGIN
+[0m11:49:28.329821 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:49:28.334709 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:49:28.334942 [debug] [MainThread]: On master: COMMIT
+[0m11:49:28.335122 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:49:28.335289 [debug] [MainThread]: On master: COMMIT
+[0m11:49:28.335749 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:49:28.335958 [debug] [MainThread]: On master: Close
+[0m11:49:28.337340 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:49:28.337605 [info ] [MainThread]: 
+[0m11:49:28.338938 [debug] [Thread-1 (]: Began running node model.eval_ambiguous_upstream.accounts
+[0m11:49:28.339242 [info ] [Thread-1 (]: 1 of 2 START sql table model main.accounts ..................................... [RUN]
+[0m11:49:28.339722 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_ambiguous_upstream.accounts'
+[0m11:49:28.339939 [debug] [Thread-1 (]: Began compiling node model.eval_ambiguous_upstream.accounts
+[0m11:49:28.343440 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.343964 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_upstream.accounts (compile): 11:49:28.340055 => 11:49:28.343797
+[0m11:49:28.344202 [debug] [Thread-1 (]: Began executing node model.eval_ambiguous_upstream.accounts
+[0m11:49:28.363537 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.363960 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.364187 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: BEGIN
+[0m11:49:28.364386 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:49:28.369452 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.369706 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.369923 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_upstream.accounts"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."accounts__dbt_tmp"
+  
+    as (
+      
+-- The offending values arrive from upstream; nothing here explains why.
+select * from (values (1,'ACTIVE'),(2,'active'),(3,'Active')) as t(id, status)
+    );
+  
+  
+[0m11:49:28.370805 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.374595 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.374830 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_upstream.accounts"} */
+alter table "eval"."main"."accounts" rename to "accounts__dbt_backup"
+[0m11:49:28.375400 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.376976 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.377193 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_upstream.accounts"} */
+alter table "eval"."main"."accounts__dbt_tmp" rename to "accounts"
+[0m11:49:28.377663 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.389140 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: COMMIT
+[0m11:49:28.389400 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.389651 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: COMMIT
+[0m11:49:28.392503 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.395481 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_upstream.accounts"
+[0m11:49:28.395756 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_upstream.accounts"} */
+drop table if exists "eval"."main"."accounts__dbt_backup" cascade
+[0m11:49:28.397673 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.398620 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_upstream.accounts (execute): 11:49:28.344330 => 11:49:28.398493
+[0m11:49:28.398835 [debug] [Thread-1 (]: On model.eval_ambiguous_upstream.accounts: Close
+[0m11:49:28.404968 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '267fd961-e2d3-45ed-a8e5-9e4107adae76', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71aaffcfddf0>]}
+[0m11:49:28.405350 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.accounts ................................ [[32mOK[0m in 0.07s]
+[0m11:49:28.405721 [debug] [Thread-1 (]: Finished running node model.eval_ambiguous_upstream.accounts
+[0m11:49:28.406389 [debug] [Thread-1 (]: Began running node test.eval_ambiguous_upstream.assert_ambiguous_upstream
+[0m11:49:28.406607 [info ] [Thread-1 (]: 2 of 2 START test assert_ambiguous_upstream .................................... [RUN]
+[0m11:49:28.406999 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_ambiguous_upstream.accounts, now test.eval_ambiguous_upstream.assert_ambiguous_upstream)
+[0m11:49:28.407202 [debug] [Thread-1 (]: Began compiling node test.eval_ambiguous_upstream.assert_ambiguous_upstream
+[0m11:49:28.408813 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_ambiguous_upstream.assert_ambiguous_upstream"
+[0m11:49:28.409238 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_upstream.assert_ambiguous_upstream (compile): 11:49:28.407314 => 11:49:28.409070
+[0m11:49:28.409518 [debug] [Thread-1 (]: Began executing node test.eval_ambiguous_upstream.assert_ambiguous_upstream
+[0m11:49:28.417664 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_ambiguous_upstream.assert_ambiguous_upstream"
+[0m11:49:28.418059 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_upstream.assert_ambiguous_upstream"
+[0m11:49:28.418334 [debug] [Thread-1 (]: On test.eval_ambiguous_upstream.assert_ambiguous_upstream: BEGIN
+[0m11:49:28.418516 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:49:28.423239 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.423491 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_upstream.assert_ambiguous_upstream"
+[0m11:49:28.423683 [debug] [Thread-1 (]: On test.eval_ambiguous_upstream.assert_ambiguous_upstream: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_ambiguous_upstream.assert_ambiguous_upstream"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select * from "eval"."main"."accounts" where status != 'ACTIVE'
+      
+    ) dbt_internal_test
+[0m11:49:28.424666 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:49:28.425925 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_upstream.assert_ambiguous_upstream (execute): 11:49:28.409652 => 11:49:28.425776
+[0m11:49:28.426143 [debug] [Thread-1 (]: On test.eval_ambiguous_upstream.assert_ambiguous_upstream: ROLLBACK
+[0m11:49:28.426639 [debug] [Thread-1 (]: Failed to rollback 'test.eval_ambiguous_upstream.assert_ambiguous_upstream'
+[0m11:49:28.426838 [debug] [Thread-1 (]: On test.eval_ambiguous_upstream.assert_ambiguous_upstream: Close
+[0m11:49:28.428439 [error] [Thread-1 (]: 2 of 2 FAIL 2 assert_ambiguous_upstream ........................................ [[31mFAIL 2[0m in 0.02s]
+[0m11:49:28.428873 [debug] [Thread-1 (]: Finished running node test.eval_ambiguous_upstream.assert_ambiguous_upstream
+[0m11:49:28.430078 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:49:28.430296 [debug] [MainThread]: On master: BEGIN
+[0m11:49:28.430466 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:49:28.434623 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:49:28.434848 [debug] [MainThread]: On master: COMMIT
+[0m11:49:28.435021 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:49:28.435198 [debug] [MainThread]: On master: COMMIT
+[0m11:49:28.435528 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:49:28.435774 [debug] [MainThread]: On master: Close
+[0m11:49:28.437411 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:49:28.437630 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:49:28.437783 [debug] [MainThread]: Connection 'test.eval_ambiguous_upstream.assert_ambiguous_upstream' was properly closed.
+[0m11:49:28.437980 [info ] [MainThread]: 
+[0m11:49:28.438200 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:49:28.438621 [debug] [MainThread]: Command end result
+[0m11:49:28.441994 [info ] [MainThread]: 
+[0m11:49:28.442271 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:49:28.442487 [info ] [MainThread]: 
+[0m11:49:28.442690 [error] [MainThread]: [31mFailure in test assert_ambiguous_upstream (tests/assert_ambiguous_upstream.sql)[0m
+[0m11:49:28.442873 [error] [MainThread]:   Got 2 results, configured to fail if != 0
+[0m11:49:28.443046 [info ] [MainThread]: 
+[0m11:49:28.443218 [info ] [MainThread]:   compiled Code at target/compiled/eval_ambiguous_upstream/tests/assert_ambiguous_upstream.sql
+[0m11:49:28.443393 [info ] [MainThread]: 
+[0m11:49:28.443606 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:49:28.444147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab0d84db80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71ab116ef710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71aaff9e3260>]}
+[0m11:49:28.444396 [debug] [MainThread]: Flushing usage events

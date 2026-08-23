@@ -418,3 +418,215 @@ select
 [0m11:45:02.226647 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
 [0m11:45:02.227035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c32fa92aa80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c32faa93590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7c32faa936e0>]}
 [0m11:45:02.227260 [debug] [MainThread]: Flushing usage events
+[0m11:50:00.251560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94dd8a60c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94ddb5fb30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94dd8a6930>]}
+
+
+============================== 11:50:00.253937 | 738e32fc-dd65-4160-8cf2-cba312a59813 ==============================
+[0m11:50:00.253937 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:50:00.254306 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'printer_width': '80', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'log_format': 'default', 'target_path': 'None', 'debug': 'False', 'write_json': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/join_fanout', 'quiet': 'False', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/join_fanout --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/join_fanout', 'introspect': 'True', 'use_colors': 'True', 'fail_fast': 'False', 'no_print': 'None', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/join_fanout/logs'}
+[0m11:50:00.419149 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94dd914dd0>]}
+[0m11:50:00.476149 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94cfea5ac0>]}
+[0m11:50:00.476810 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:50:00.481690 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:50:00.491123 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:50:00.491335 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:50:00.494633 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94dd8a7770>]}
+[0m11:50:00.499072 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94cfb099d0>]}
+[0m11:50:00.499339 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:50:00.500392 [info ] [MainThread]: 
+[0m11:50:00.500851 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:50:00.501676 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:50:00.508402 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:50:00.508641 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:50:00.508821 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:50:00.515064 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.515948 [debug] [ThreadPool]: On list_eval: Close
+[0m11:50:00.518252 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:50:00.518653 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:50:00.522212 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:50:00.522422 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:50:00.522674 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:50:00.526717 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.527478 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:50:00.527735 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:50:00.528135 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.528309 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:50:00.528461 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:50:00.528845 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.529319 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:50:00.529485 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:50:00.529633 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:50:00.530006 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.530220 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:50:00.532365 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:50:00.535340 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:50:00.535536 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:50:00.535747 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:50:00.539673 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.539899 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:50:00.540077 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:50:00.555397 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:50:00.556207 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:50:00.556778 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:50:00.556968 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:50:00.559440 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94cffcadb0>]}
+[0m11:50:00.559753 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:50:00.559938 [debug] [MainThread]: On master: BEGIN
+[0m11:50:00.560097 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:50:00.564823 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:50:00.565051 [debug] [MainThread]: On master: COMMIT
+[0m11:50:00.565249 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:50:00.565409 [debug] [MainThread]: On master: COMMIT
+[0m11:50:00.565730 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:50:00.565907 [debug] [MainThread]: On master: Close
+[0m11:50:00.567273 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:50:00.567545 [info ] [MainThread]: 
+[0m11:50:00.568964 [debug] [Thread-1 (]: Began running node model.eval_join_fanout.order_prices
+[0m11:50:00.569261 [info ] [Thread-1 (]: 1 of 2 START sql table model main.order_prices ................................. [RUN]
+[0m11:50:00.569750 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_join_fanout.order_prices'
+[0m11:50:00.569962 [debug] [Thread-1 (]: Began compiling node model.eval_join_fanout.order_prices
+[0m11:50:00.573632 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_join_fanout.order_prices"
+[0m11:50:00.574064 [debug] [Thread-1 (]: Timing info for model.eval_join_fanout.order_prices (compile): 11:50:00.570081 => 11:50:00.573900
+[0m11:50:00.574269 [debug] [Thread-1 (]: Began executing node model.eval_join_fanout.order_prices
+[0m11:50:00.593142 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_join_fanout.order_prices"
+[0m11:50:00.593539 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.593773 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: BEGIN
+[0m11:50:00.593967 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:50:00.599098 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.599363 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.599571 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_join_fanout.order_prices"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."order_prices__dbt_tmp"
+  
+    as (
+      
+with orders as (
+    select * from (values (1,'a'),(2,'b'),(3,'c')) as t(order_id, sku)
+),
+prices as (
+    -- PLANTED DEFECT: sku 'a' appears twice, so the join duplicates order 1
+    select * from (values ('a',10.0),('a',12.0),('b',20.0),('c',30.0)) as t(sku, price)
+)
+select o.order_id, o.sku, p.price
+from orders o join prices p on o.sku = p.sku
+    );
+  
+  
+[0m11:50:00.602184 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.605855 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.606089 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_join_fanout.order_prices"} */
+alter table "eval"."main"."order_prices" rename to "order_prices__dbt_backup"
+[0m11:50:00.606650 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.608243 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.608456 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_join_fanout.order_prices"} */
+alter table "eval"."main"."order_prices__dbt_tmp" rename to "order_prices"
+[0m11:50:00.608889 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.619763 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: COMMIT
+[0m11:50:00.620018 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.620208 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: COMMIT
+[0m11:50:00.622590 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.625718 [debug] [Thread-1 (]: Using duckdb connection "model.eval_join_fanout.order_prices"
+[0m11:50:00.625995 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_join_fanout.order_prices"} */
+drop table if exists "eval"."main"."order_prices__dbt_backup" cascade
+[0m11:50:00.628010 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.628924 [debug] [Thread-1 (]: Timing info for model.eval_join_fanout.order_prices (execute): 11:50:00.574387 => 11:50:00.628797
+[0m11:50:00.629132 [debug] [Thread-1 (]: On model.eval_join_fanout.order_prices: Close
+[0m11:50:00.636434 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '738e32fc-dd65-4160-8cf2-cba312a59813', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94cfa30a10>]}
+[0m11:50:00.636847 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.order_prices ............................ [[32mOK[0m in 0.07s]
+[0m11:50:00.637257 [debug] [Thread-1 (]: Finished running node model.eval_join_fanout.order_prices
+[0m11:50:00.637976 [debug] [Thread-1 (]: Began running node test.eval_join_fanout.assert_join_fanout
+[0m11:50:00.638201 [info ] [Thread-1 (]: 2 of 2 START test assert_join_fanout ........................................... [RUN]
+[0m11:50:00.638605 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_join_fanout.order_prices, now test.eval_join_fanout.assert_join_fanout)
+[0m11:50:00.638834 [debug] [Thread-1 (]: Began compiling node test.eval_join_fanout.assert_join_fanout
+[0m11:50:00.640561 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_join_fanout.assert_join_fanout"
+[0m11:50:00.640976 [debug] [Thread-1 (]: Timing info for test.eval_join_fanout.assert_join_fanout (compile): 11:50:00.638952 => 11:50:00.640834
+[0m11:50:00.641258 [debug] [Thread-1 (]: Began executing node test.eval_join_fanout.assert_join_fanout
+[0m11:50:00.649203 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_join_fanout.assert_join_fanout"
+[0m11:50:00.649560 [debug] [Thread-1 (]: Using duckdb connection "test.eval_join_fanout.assert_join_fanout"
+[0m11:50:00.649767 [debug] [Thread-1 (]: On test.eval_join_fanout.assert_join_fanout: BEGIN
+[0m11:50:00.649940 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:50:00.654268 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.654520 [debug] [Thread-1 (]: Using duckdb connection "test.eval_join_fanout.assert_join_fanout"
+[0m11:50:00.654725 [debug] [Thread-1 (]: On test.eval_join_fanout.assert_join_fanout: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_join_fanout.assert_join_fanout"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select order_id from "eval"."main"."order_prices" group by order_id having count(*) > 1
+      
+    ) dbt_internal_test
+[0m11:50:00.657261 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:50:00.658592 [debug] [Thread-1 (]: Timing info for test.eval_join_fanout.assert_join_fanout (execute): 11:50:00.641399 => 11:50:00.658432
+[0m11:50:00.658853 [debug] [Thread-1 (]: On test.eval_join_fanout.assert_join_fanout: ROLLBACK
+[0m11:50:00.659374 [debug] [Thread-1 (]: Failed to rollback 'test.eval_join_fanout.assert_join_fanout'
+[0m11:50:00.659586 [debug] [Thread-1 (]: On test.eval_join_fanout.assert_join_fanout: Close
+[0m11:50:00.661539 [error] [Thread-1 (]: 2 of 2 FAIL 1 assert_join_fanout ............................................... [[31mFAIL 1[0m in 0.02s]
+[0m11:50:00.661941 [debug] [Thread-1 (]: Finished running node test.eval_join_fanout.assert_join_fanout
+[0m11:50:00.663151 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:50:00.663351 [debug] [MainThread]: On master: BEGIN
+[0m11:50:00.663519 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:50:00.667952 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:50:00.668171 [debug] [MainThread]: On master: COMMIT
+[0m11:50:00.668367 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:50:00.668523 [debug] [MainThread]: On master: COMMIT
+[0m11:50:00.668865 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:50:00.669039 [debug] [MainThread]: On master: Close
+[0m11:50:00.670592 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:50:00.670806 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:50:00.670966 [debug] [MainThread]: Connection 'test.eval_join_fanout.assert_join_fanout' was properly closed.
+[0m11:50:00.671160 [info ] [MainThread]: 
+[0m11:50:00.671388 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:50:00.671916 [debug] [MainThread]: Command end result
+[0m11:50:00.675478 [info ] [MainThread]: 
+[0m11:50:00.676007 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:50:00.676235 [info ] [MainThread]: 
+[0m11:50:00.676435 [error] [MainThread]: [31mFailure in test assert_join_fanout (tests/assert_join_fanout.sql)[0m
+[0m11:50:00.676614 [error] [MainThread]:   Got 1 result, configured to fail if != 0
+[0m11:50:00.676783 [info ] [MainThread]: 
+[0m11:50:00.676955 [info ] [MainThread]:   compiled Code at target/compiled/eval_join_fanout/tests/assert_join_fanout.sql
+[0m11:50:00.677137 [info ] [MainThread]: 
+[0m11:50:00.677339 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:50:00.677720 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94ddb5fb30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94e1496960>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7b94ddcbf980>]}
+[0m11:50:00.677947 [debug] [MainThread]: Flushing usage events

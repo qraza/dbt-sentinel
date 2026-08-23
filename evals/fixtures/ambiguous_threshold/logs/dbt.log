@@ -202,3 +202,211 @@ select
 [0m11:44:35.860660 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
 [0m11:44:35.861039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78cef46d5f70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78cef46d42f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x78cee66b0920>]}
 [0m11:44:35.861292 [debug] [MainThread]: Flushing usage events
+[0m11:48:47.482347 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc32994f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc38ade80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc402be00>]}
+
+
+============================== 11:48:47.484815 | 597b3b25-e40f-43fd-9709-993b3876efb2 ==============================
+[0m11:48:47.484815 [info ] [MainThread]: Running with dbt=1.7.9
+[0m11:48:47.485205 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'partial_parse': 'True', 'static_parser': 'True', 'profiles_dir': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_threshold', 'introspect': 'True', 'no_print': 'None', 'debug': 'False', 'use_experimental_parser': 'False', 'write_json': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'quiet': 'False', 'target_path': 'None', 'fail_fast': 'False', 'invocation_command': 'dbt build --project-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_threshold --profiles-dir /home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_threshold', 'log_cache_events': 'False', 'warn_error': 'None', 'log_path': '/home/qamr/development/dbt-sentinel/evals/fixtures/ambiguous_threshold/logs', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'version_check': 'True'}
+[0m11:48:47.647311 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb570d040>]}
+[0m11:48:47.704200 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb5ac3140>]}
+[0m11:48:47.704747 [info ] [MainThread]: Registered adapter: duckdb=1.7.5
+[0m11:48:47.709450 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m11:48:47.718958 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m11:48:47.719243 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m11:48:47.722868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb565d5e0>]}
+[0m11:48:47.727765 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb54fd610>]}
+[0m11:48:47.728098 [info ] [MainThread]: Found 1 model, 1 test, 0 sources, 0 exposures, 0 metrics, 394 macros, 0 groups, 0 semantic models
+[0m11:48:47.729276 [info ] [MainThread]: 
+[0m11:48:47.729746 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m11:48:47.730590 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_eval'
+[0m11:48:47.737213 [debug] [ThreadPool]: Using duckdb connection "list_eval"
+[0m11:48:47.737433 [debug] [ThreadPool]: On list_eval: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where catalog_name = '"eval"'
+    
+  
+  
+[0m11:48:47.737601 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m11:48:47.743595 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.744360 [debug] [ThreadPool]: On list_eval: Close
+[0m11:48:47.746659 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_eval, now create_eval_main)
+[0m11:48:47.747081 [debug] [ThreadPool]: Creating schema "database: "eval"
+schema: "main"
+"
+[0m11:48:47.750847 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:48:47.751069 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+        select type from duckdb_databases()
+        where database_name='eval'
+        and type='sqlite'
+    
+  
+[0m11:48:47.751346 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:48:47.755485 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.756266 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:48:47.756462 [debug] [ThreadPool]: On create_eval_main: BEGIN
+[0m11:48:47.756835 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.757019 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:48:47.757175 [debug] [ThreadPool]: On create_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "create_eval_main"} */
+
+    
+    
+        create schema if not exists "eval"."main"
+    
+[0m11:48:47.757566 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.758071 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:48:47.758256 [debug] [ThreadPool]: Using duckdb connection "create_eval_main"
+[0m11:48:47.758419 [debug] [ThreadPool]: On create_eval_main: COMMIT
+[0m11:48:47.758821 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.759044 [debug] [ThreadPool]: On create_eval_main: Close
+[0m11:48:47.761229 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_eval_main, now list_eval_main)
+[0m11:48:47.764447 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:48:47.764662 [debug] [ThreadPool]: On list_eval_main: BEGIN
+[0m11:48:47.764822 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m11:48:47.768729 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.768942 [debug] [ThreadPool]: Using duckdb connection "list_eval_main"
+[0m11:48:47.769116 [debug] [ThreadPool]: On list_eval_main: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "connection_name": "list_eval_main"} */
+select
+      'eval' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'eval'
+  
+[0m11:48:47.784334 [debug] [ThreadPool]: SQL status: OK in 0.0 seconds
+[0m11:48:47.785113 [debug] [ThreadPool]: On list_eval_main: ROLLBACK
+[0m11:48:47.785682 [debug] [ThreadPool]: Failed to rollback 'list_eval_main'
+[0m11:48:47.785872 [debug] [ThreadPool]: On list_eval_main: Close
+[0m11:48:47.788006 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb5a86720>]}
+[0m11:48:47.788286 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:48:47.788468 [debug] [MainThread]: On master: BEGIN
+[0m11:48:47.788624 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m11:48:47.793291 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:48:47.793511 [debug] [MainThread]: On master: COMMIT
+[0m11:48:47.793688 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:48:47.793849 [debug] [MainThread]: On master: COMMIT
+[0m11:48:47.794193 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:48:47.794391 [debug] [MainThread]: On master: Close
+[0m11:48:47.795771 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m11:48:47.796042 [info ] [MainThread]: 
+[0m11:48:47.797401 [debug] [Thread-1 (]: Began running node model.eval_ambiguous_threshold.daily_revenue
+[0m11:48:47.797705 [info ] [Thread-1 (]: 1 of 2 START sql table model main.daily_revenue ................................ [RUN]
+[0m11:48:47.798158 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.eval_ambiguous_threshold.daily_revenue'
+[0m11:48:47.798363 [debug] [Thread-1 (]: Began compiling node model.eval_ambiguous_threshold.daily_revenue
+[0m11:48:47.801962 [debug] [Thread-1 (]: Writing injected SQL for node "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.802375 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_threshold.daily_revenue (compile): 11:48:47.798502 => 11:48:47.802235
+[0m11:48:47.802612 [debug] [Thread-1 (]: Began executing node model.eval_ambiguous_threshold.daily_revenue
+[0m11:48:47.821953 [debug] [Thread-1 (]: Writing runtime sql for node "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.822328 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.822538 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: BEGIN
+[0m11:48:47.822711 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m11:48:47.827704 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.827947 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.828146 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_threshold.daily_revenue"} */
+
+  
+    
+    
+
+    create  table
+      "eval"."main"."daily_revenue__dbt_tmp"
+  
+    as (
+      
+-- Ordinary-looking daily revenue. Nothing in these rows reveals whether the
+-- threshold below is stale, or the business genuinely had quiet days.
+select * from (values
+    ('2026-08-01', 10400.00), ('2026-08-02', 9800.00), ('2026-08-03', 9100.00)
+) as t(day, revenue)
+    );
+  
+  
+[0m11:48:47.829504 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.833258 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.833498 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_threshold.daily_revenue"} */
+alter table "eval"."main"."daily_revenue" rename to "daily_revenue__dbt_backup"
+[0m11:48:47.834103 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.835775 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.836020 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_threshold.daily_revenue"} */
+alter table "eval"."main"."daily_revenue__dbt_tmp" rename to "daily_revenue"
+[0m11:48:47.836515 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.847908 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: COMMIT
+[0m11:48:47.848150 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.848338 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: COMMIT
+[0m11:48:47.851522 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.854496 [debug] [Thread-1 (]: Using duckdb connection "model.eval_ambiguous_threshold.daily_revenue"
+[0m11:48:47.854735 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "model.eval_ambiguous_threshold.daily_revenue"} */
+drop table if exists "eval"."main"."daily_revenue__dbt_backup" cascade
+[0m11:48:47.856845 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.857720 [debug] [Thread-1 (]: Timing info for model.eval_ambiguous_threshold.daily_revenue (execute): 11:48:47.802739 => 11:48:47.857594
+[0m11:48:47.857932 [debug] [Thread-1 (]: On model.eval_ambiguous_threshold.daily_revenue: Close
+[0m11:48:47.864700 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '597b3b25-e40f-43fd-9709-993b3876efb2', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fb5436090>]}
+[0m11:48:47.865119 [info ] [Thread-1 (]: 1 of 2 OK created sql table model main.daily_revenue ........................... [[32mOK[0m in 0.07s]
+[0m11:48:47.865495 [debug] [Thread-1 (]: Finished running node model.eval_ambiguous_threshold.daily_revenue
+[0m11:48:47.866126 [debug] [Thread-1 (]: Began running node test.eval_ambiguous_threshold.assert_ambiguous_threshold
+[0m11:48:47.866351 [info ] [Thread-1 (]: 2 of 2 START test assert_ambiguous_threshold ................................... [RUN]
+[0m11:48:47.866750 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.eval_ambiguous_threshold.daily_revenue, now test.eval_ambiguous_threshold.assert_ambiguous_threshold)
+[0m11:48:47.866958 [debug] [Thread-1 (]: Began compiling node test.eval_ambiguous_threshold.assert_ambiguous_threshold
+[0m11:48:47.868542 [debug] [Thread-1 (]: Writing injected SQL for node "test.eval_ambiguous_threshold.assert_ambiguous_threshold"
+[0m11:48:47.868932 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_threshold.assert_ambiguous_threshold (compile): 11:48:47.867073 => 11:48:47.868792
+[0m11:48:47.869242 [debug] [Thread-1 (]: Began executing node test.eval_ambiguous_threshold.assert_ambiguous_threshold
+[0m11:48:47.877840 [debug] [Thread-1 (]: Writing runtime sql for node "test.eval_ambiguous_threshold.assert_ambiguous_threshold"
+[0m11:48:47.878209 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_threshold.assert_ambiguous_threshold"
+[0m11:48:47.878414 [debug] [Thread-1 (]: On test.eval_ambiguous_threshold.assert_ambiguous_threshold: BEGIN
+[0m11:48:47.878591 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m11:48:47.882716 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.882975 [debug] [Thread-1 (]: Using duckdb connection "test.eval_ambiguous_threshold.assert_ambiguous_threshold"
+[0m11:48:47.883184 [debug] [Thread-1 (]: On test.eval_ambiguous_threshold.assert_ambiguous_threshold: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "eval", "target_name": "dev", "node_id": "test.eval_ambiguous_threshold.assert_ambiguous_threshold"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      select * from "eval"."main"."daily_revenue" where revenue < 12000
+      
+    ) dbt_internal_test
+[0m11:48:47.884563 [debug] [Thread-1 (]: SQL status: OK in 0.0 seconds
+[0m11:48:47.885785 [debug] [Thread-1 (]: Timing info for test.eval_ambiguous_threshold.assert_ambiguous_threshold (execute): 11:48:47.869389 => 11:48:47.885636
+[0m11:48:47.886013 [debug] [Thread-1 (]: On test.eval_ambiguous_threshold.assert_ambiguous_threshold: ROLLBACK
+[0m11:48:47.886505 [debug] [Thread-1 (]: Failed to rollback 'test.eval_ambiguous_threshold.assert_ambiguous_threshold'
+[0m11:48:47.886703 [debug] [Thread-1 (]: On test.eval_ambiguous_threshold.assert_ambiguous_threshold: Close
+[0m11:48:47.888471 [error] [Thread-1 (]: 2 of 2 FAIL 3 assert_ambiguous_threshold ....................................... [[31mFAIL 3[0m in 0.02s]
+[0m11:48:47.888855 [debug] [Thread-1 (]: Finished running node test.eval_ambiguous_threshold.assert_ambiguous_threshold
+[0m11:48:47.890055 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:48:47.890261 [debug] [MainThread]: On master: BEGIN
+[0m11:48:47.890421 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m11:48:47.894853 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:48:47.895075 [debug] [MainThread]: On master: COMMIT
+[0m11:48:47.895247 [debug] [MainThread]: Using duckdb connection "master"
+[0m11:48:47.895400 [debug] [MainThread]: On master: COMMIT
+[0m11:48:47.895744 [debug] [MainThread]: SQL status: OK in 0.0 seconds
+[0m11:48:47.895935 [debug] [MainThread]: On master: Close
+[0m11:48:47.897408 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m11:48:47.897617 [debug] [MainThread]: Connection 'list_eval_main' was properly closed.
+[0m11:48:47.897776 [debug] [MainThread]: Connection 'test.eval_ambiguous_threshold.assert_ambiguous_threshold' was properly closed.
+[0m11:48:47.897965 [info ] [MainThread]: 
+[0m11:48:47.898205 [info ] [MainThread]: Finished running 1 table model, 1 test in 0 hours 0 minutes and 0.17 seconds (0.17s).
+[0m11:48:47.898632 [debug] [MainThread]: Command end result
+[0m11:48:47.902097 [info ] [MainThread]: 
+[0m11:48:47.902400 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m11:48:47.902616 [info ] [MainThread]: 
+[0m11:48:47.902819 [error] [MainThread]: [31mFailure in test assert_ambiguous_threshold (tests/assert_ambiguous_threshold.sql)[0m
+[0m11:48:47.903018 [error] [MainThread]:   Got 3 results, configured to fail if != 0
+[0m11:48:47.903198 [info ] [MainThread]: 
+[0m11:48:47.903375 [info ] [MainThread]:   compiled Code at target/compiled/eval_ambiguous_threshold/tests/assert_ambiguous_threshold.sql
+[0m11:48:47.903555 [info ] [MainThread]: 
+[0m11:48:47.903843 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[0m11:48:47.904227 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc3566210>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc354f020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x701fc36ac9b0>]}
+[0m11:48:47.904459 [debug] [MainThread]: Flushing usage events

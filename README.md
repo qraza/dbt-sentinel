@@ -166,3 +166,43 @@ no warehouse, no API key needed.
 
 Built by [Qamar Raza](https://github.com/qraza).
 
+
+## Does the diagnosis actually work?
+
+`evals/` runs dbt-sentinel against fixtures with deliberately planted defects and known
+correct answers. Two fixture kinds:
+
+- **strong signal** — the cause is inferable from the sampled rows (unit-conversion error,
+  join fan-out, division by zero, inconsistent casing). A confident, correct answer is expected.
+- **weak signal** — the cause is *not* determinable from the data (a stale allow-list, a
+  revenue threshold that may or may not be wrong). Here a confident answer is a **failure**.
+
+Without the weak fixtures you can only measure accuracy, and a model that is confident about
+everything scores perfectly.
+
+Each fixture runs 3 times, since LLM confidence is not deterministic.
+
+| Metric | Best case | Worst case |
+| --- | --- | --- |
+| Accuracy (4 strong fixtures) | 1.00 | 0.75 |
+| Calibration (2 weak fixtures) | 1.00 | 1.00 |
+| **Overconfident errors** | **0 of 18 diagnoses** | |
+
+The asymmetry matters more than the headline number. Every error was *under*-confidence —
+one fixture returned "low" on one of three runs when it could have answered. It was never
+confident and wrong. For a diagnostic tool that is the right direction to fail in: a missed
+answer costs you the manual investigation you would have done anyway; a confident wrong
+answer sends you chasing a bug that does not exist.
+
+**Method and its limits.** Matching is keyword-based, so a right-idea-wrong-wording answer
+scores as a miss — treat accuracy as a lower bound. Six fixtures is a smoke test, not a
+statistic. Evals need an API key and are run manually, not in CI.
+
+```bash
+uv run --group evals python evals/run_evals.py     # EVAL_RUNS=5 for more passes
+```
+
+**This harness changed the tool.** The first weak fixture came back "high confidence" with a
+plausible-sounding cause. The system prompt told the model to flag *insufficient* evidence but
+said nothing about *ambiguous* evidence supporting several explanations. Adding that took
+calibration from 0.00 to 1.00 with no loss of accuracy.
