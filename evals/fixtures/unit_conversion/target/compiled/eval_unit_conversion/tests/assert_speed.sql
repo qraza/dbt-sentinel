@@ -1,0 +1,1 @@
+select * from "eval"."main"."trips" where avg_speed_mph > 80

@@ -48,6 +48,10 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.0",
 ]
+evals = [
+    "dbt-duckdb>=1.7.5",
+    "pyyaml>=6.0.3",
+]
 ui = [
     "pandas>=3.0.5",
     "streamlit>=1.61.1",

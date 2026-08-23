@@ -1,0 +1,5 @@
+name: unit_conversion
+signal: strong
+expected_confidence: high
+expected_cause_keywords: ["600", "multiplier", "unit", "conversion"]
+must_not_claim: ["null", "division by zero", "missing data"]
