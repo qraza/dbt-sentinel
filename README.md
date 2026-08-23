@@ -7,7 +7,7 @@ explanation and a concrete fix. It flags low-confidence answers instead of bluff
 
 [![CI](https://github.com/qraza/dbt-sentinel/actions/workflows/ci.yml/badge.svg)](https://github.com/qraza/dbt-sentinel/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/dbt-sentinel)](https://pypi.org/project/dbt-sentinel/)
-![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
+![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/qraza/dbt-sentinel/blob/main/LICENSE)
 
 ![sentinel analyze demo](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/demo.gif)
