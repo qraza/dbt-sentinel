@@ -1,6 +1,6 @@
 [project]
 name = "dbt-sentinel"
-version = "0.7.0"
+version = "0.7.1"
 description = "AI-grounded root-cause analysis for failing dbt tests"
 license = "MIT"
 keywords = ["dbt", "data-quality", "observability", "analytics-engineering", "llm"]
@@ -15,7 +15,7 @@ readme = "README.md"
 authors = [
     { name = "Qamar Raza", email = "raza.qamar@gmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
     "click==8.1.7",
     "duckdb==1.1.3",
