@@ -177,6 +177,13 @@ say "insufficient evidence" rather than speculate, and confidence is shown, not 
 - Diagnosis quality depends on the model and on how much signal the sampled rows carry;
   low-signal failures correctly return low confidence.
 
+## Related projects
+
+- [taxi-analytics-pipeline](https://github.com/qraza/taxi-analytics-pipeline) — the dbt
+  project these diagnoses run against.
+- [dbt-mcp](https://github.com/qraza/dbt-mcp) — exposes this library's capabilities as MCP
+  tools so an AI assistant can compose its own answers.
+
 ## Development
 
 ```bash
@@ -185,7 +192,10 @@ uv run ruff check .
 uv run pytest -v
 ```
 
-CI runs the same lint + tests on every push. Tests use committed fixtures and a mocked API —
+The dbt artifacts in `tests/fixtures/` are deliberately frozen snapshots, so they will
+report as stale — that is intentional, and exercises the staleness guard.
+
+CI runs the same lint + tests on every push, on Python 3.11 and 3.12. Tests use committed fixtures and a mocked API —
 no warehouse, no API key needed.
 
 ---
