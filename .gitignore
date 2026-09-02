@@ -9,3 +9,5 @@ TestPyPI-Recovery-Codes-qamR-2026-08-09T21_11_41.308240.txt__pycache__/
 *.py[cod]
 .pytest_cache/
 notes/
+.sentinel/
+*Recovery-Codes*
