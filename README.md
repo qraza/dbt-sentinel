@@ -20,10 +20,6 @@ Runs in CI too — on every pull request it posts its grounded diagnosis as a co
 > on this library, so an AI assistant can answer "what broke and why?" without you
 > running a command.
 
-> **Also see [sentinel-mcp](https://github.com/qraza/sentinel-mcp)** — an MCP server that
-> exposes this library to AI assistants, so you can ask your dbt project what's wrong
-> instead of running a command.
-
 ## What this is
 
 A data-quality companion for dbt. When `dbt build` reports a failing test, you normally
@@ -177,7 +173,7 @@ say "insufficient evidence" rather than speculate, and confidence is shown, not 
 
 ## Limitations
 
-- DuckDB and BigQuery supported; other engines need a new Warehouse adapter.
+- DuckDB, BigQuery and Snowflake supported; other engines need a new Warehouse adapter.
 - One dbt project per run.
 - Models with extended thinking can spend the whole token budget before emitting text,
   so `max_tokens` is set generously; too low a value yields an unparseable (low-confidence)
