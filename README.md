@@ -16,6 +16,10 @@ Runs in CI too — on every pull request it posts its grounded diagnosis as a co
 
 ![PR comment](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/pr-comment.png)
 
+> **See also [sentinel-mcp](https://github.com/qraza/sentinel-mcp)** — an MCP server built
+> on this library, so an AI assistant can answer "what broke and why?" without you
+> running a command.
+
 > **Also see [sentinel-mcp](https://github.com/qraza/sentinel-mcp)** — an MCP server that
 > exposes this library to AI assistants, so you can ask your dbt project what's wrong
 > instead of running a command.
