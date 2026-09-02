@@ -16,6 +16,10 @@ Runs in CI too — on every pull request it posts its grounded diagnosis as a co
 
 ![PR comment](https://raw.githubusercontent.com/qraza/dbt-sentinel/main/docs/pr-comment.png)
 
+> **Also see [sentinel-mcp](https://github.com/qraza/sentinel-mcp)** — an MCP server that
+> exposes this library to AI assistants, so you can ask your dbt project what's wrong
+> instead of running a command.
+
 ## What this is
 
 A data-quality companion for dbt. When `dbt build` reports a failing test, you normally
@@ -181,7 +185,7 @@ say "insufficient evidence" rather than speculate, and confidence is shown, not 
 
 - [taxi-analytics-pipeline](https://github.com/qraza/taxi-analytics-pipeline) — the dbt
   project these diagnoses run against.
-- [dbt-mcp](https://github.com/qraza/dbt-mcp) — exposes this library's capabilities as MCP
+- [sentinel-mcp](https://github.com/qraza/sentinel-mcp) — exposes this library's capabilities as MCP
   tools so an AI assistant can compose its own answers.
 
 ## Development
